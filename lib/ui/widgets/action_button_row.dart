@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
-import 'package:quotez/bloc/home_screen/share_button/share_bloc.dart';
 
 class ActionButtonRow extends StatefulWidget {
   const ActionButtonRow({Key? key}) : super(key: key);
@@ -52,16 +51,37 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
             ),
           ),
         ),
-        IconButton(
-          onPressed: () {
-            BlocProvider.of<ShareBloc>(context).add(ShareQuote());
-          },
-          icon: Icon(
-            Icons.share,
-            size: 25,
-            color: Theme.of(context).iconTheme.color,
-          ),
-        ),
+        BlocBuilder<HomeBloc, HomeState>(
+            builder: (BuildContext context, state) {
+          if (state is HomeLoaded) {
+            return IconButton(
+              onPressed: () {
+                BlocProvider.of<HomeBloc>(context).add(
+                  ShareQuote(
+                    shareQuote: state.randomQuote,
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.share,
+                size: 25,
+                color: Theme.of(context).iconTheme.color,
+              ),
+            );
+          } else {
+            return IconButton(
+              onPressed: () {
+                BlocProvider.of<HomeBloc>(context)
+                    .add(ShareQuote(shareQuote: null));
+              },
+              icon: Icon(
+                Icons.share,
+                size: 25,
+                color: Theme.of(context).iconTheme.color,
+              ),
+            );
+          }
+        })
       ],
     );
   }

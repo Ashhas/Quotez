@@ -11,6 +11,9 @@ import 'package:quotez/utils/constants/theme_const.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
 void main() {
+  //Check for platform channels
+  WidgetsFlutterBinding.ensureInitialized();
+
   //Initialize Bloc Observer
   Bloc.observer = SimpleBlocObserver();
 

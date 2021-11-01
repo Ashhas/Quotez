@@ -23,7 +23,7 @@ class _TextContainerState extends State<TextContainerLoading> {
             color: Colors.grey.shade900,
             child: const SizedBox(
               height: 20,
-              width: 100,
+              width: 300,
             ),
           ),
           SizedBox(
