@@ -8,7 +8,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(HomeLoading());
+  HomeBloc() : super(HomeInit());
 
   @override
   Stream<HomeState> mapEventToState(HomeEvent event) async* {
@@ -17,5 +17,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  Stream<HomeState> _mapGetRandomQuoteToState(HomeState state) async* {}
+  Stream<HomeState> _mapGetRandomQuoteToState(HomeState state) async* {
+    yield HomeLoading();
+    yield HomeLoaded();
+  }
 }

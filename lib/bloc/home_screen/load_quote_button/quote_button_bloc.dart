@@ -9,21 +9,27 @@ part 'quote_button_event.dart';
 part 'quote_button_state.dart';
 
 class QuoteButtonBloc extends Bloc<QuoteButtonEvent, QuoteButtonState> {
-  late HomeBloc homeBloc;
-  late StreamSubscription subscription;
+  final HomeBloc homeBloc;
+  StreamSubscription? homeSubscription;
 
   QuoteButtonBloc({required this.homeBloc}) : super(QuoteButtonStandby()) {
-    subscription = homeBloc.stream.listen((state) {
-      if (state is HomeLoading) {
-        _setButtonLoadingState();
-      } else if (state is HomeLoaded) {
-        _setButtonStandbyState();
+    homeSubscription = homeBloc.stream.listen((homeState) {
+      if (homeState is HomeLoading) {
+        add(AnimateQuoteButton());
+      } else if (homeState is HomeLoaded) {
+        add(StopQuoteButtonAnimation());
       }
     });
   }
 
   @override
-  Stream<QuoteButtonState> mapEventToState(QuoteButtonEvent event) async* {}
+  Stream<QuoteButtonState> mapEventToState(QuoteButtonEvent event) async* {
+    if (event is AnimateQuoteButton) {
+      yield* _setButtonLoadingState();
+    } else if (event is StopQuoteButtonAnimation) {
+      yield* _setButtonStandbyState();
+    }
+  }
 
   Stream<QuoteButtonState> _setButtonLoadingState() async* {
     yield QuoteButtonPressed();
