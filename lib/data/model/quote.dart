@@ -1,14 +1,14 @@
 class Quote {
-  String? _author;
-  int? _id;
-  String? _quote;
-  String? _permalink;
+  late String _author;
+  late int _id;
+  late String _quote;
+  late String _permalink;
 
   Quote({
-    String? author,
-    int? id,
-    String? quote,
-    String? permalink,
+    required String author,
+    required int id,
+    required String quote,
+    required String permalink,
   }) {
     _author = author;
     _id = id;
@@ -16,13 +16,13 @@ class Quote {
     _permalink = permalink;
   }
 
-  String? get author => _author;
+  String get author => _author;
 
-  int? get id => _id;
+  int get id => _id;
 
-  String? get quote => _quote;
+  String get quote => _quote;
 
-  String? get permalink => _permalink;
+  String get permalink => _permalink;
 
   Quote.fromJson(dynamic json) {
     _author = json['author'];
