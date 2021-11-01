@@ -10,11 +10,20 @@ class SavedQuotesScreen extends StatefulWidget {
 class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Saved Quotes"),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
+        appBar: AppBar(
+          title: const Text(
+            "Saved Quotes",
+            style: TextStyle(color: Colors.black87),
+          ),
+          elevation: 0,
+          iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
+          backgroundColor: Colors.white,
+        ),
+        body: Container(),
       ),
-      body: Container(),
     );
   }
 }
