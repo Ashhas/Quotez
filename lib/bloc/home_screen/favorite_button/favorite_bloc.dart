@@ -18,6 +18,5 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
   Stream<FavoriteState> _mapFavoriteButtonPressed(
       FavoriteEvent event, FavoriteState state) async* {
-    print("in method");
   }
 }
