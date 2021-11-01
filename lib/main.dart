@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           )
         ],
         child: MaterialApp(
-          title: 'Flutter Demo',
+          title: UiConst.appName,
           theme: AppTheme.getDefaultTheme(),
           initialRoute: UiConst.homeScreenRoute,
           routes: {

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:quotez/data/model/quote.dart';
 
@@ -11,25 +12,25 @@ class DioClient {
   );
 
   Future<Quote?> getRandomQuote() async {
-    Quote? quote;
+    Quote? newQuote;
 
     try {
       Response randomQuote = await _dio.get('/random.json');
 
-      quote = Quote.fromJson(randomQuote.data);
+      newQuote = Quote.fromJson(randomQuote.data);
     } on DioError catch (e) {
       if (e.response != null) {
-        print('Dio error!');
-        print('STATUS: ${e.response?.statusCode}');
-        print('DATA: ${e.response?.data}');
-        print('HEADERS: ${e.response?.headers}');
+        log('Dio error!');
+        log('STATUS: ${e.response?.statusCode}');
+        log('DATA: ${e.response?.data}');
+        log('HEADERS: ${e.response?.headers}');
       } else {
         // Error due to setting up or sending the request
-        print('Error sending request!');
-        print(e.message);
+        log('Error sending request!');
+        log(e.message);
       }
     }
 
-    return quote;
+    return newQuote;
   }
 }

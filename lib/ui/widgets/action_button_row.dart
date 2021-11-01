@@ -38,7 +38,7 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
           onPressed: () {
             BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
           },
-          child: Center(
+          child: const Center(
             child: Icon(
               Icons.sync,
               size: 35,
