@@ -4,6 +4,7 @@ import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
 import 'package:quotez/bloc/simple_bloc_observer.dart';
+import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home.dart';
 import 'package:quotez/ui/saved_quotes_screen.dart';
 import 'package:quotez/utils/constants/theme_const.dart';
@@ -21,28 +22,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    final QuoteRepository quoteRepository = QuoteRepository();
+
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider(
-          create: (context) => HomeBloc(),
-        ),
-        BlocProvider(
-          create: (context) => QuoteButtonBloc(
-            homeBloc: BlocProvider.of<HomeBloc>(context),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => FavoriteBloc(),
-        )
+        RepositoryProvider<QuoteRepository>(
+            create: (context) => quoteRepository),
       ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: AppTheme.getDefaultTheme(),
-        initialRoute: UiConst.homeScreenRoute,
-        routes: {
-          UiConst.homeScreenRoute: (context) => HomeScreen(),
-          UiConst.savedQuotesScreenRoute: (context) => SavedQuotesScreen(),
-        },
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => HomeBloc(
+              quoteRepository: quoteRepository,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => QuoteButtonBloc(
+              homeBloc: BlocProvider.of<HomeBloc>(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => FavoriteBloc(),
+          )
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: AppTheme.getDefaultTheme(),
+          initialRoute: UiConst.homeScreenRoute,
+          routes: {
+            UiConst.homeScreenRoute: (context) => HomeScreen(),
+            UiConst.savedQuotesScreenRoute: (context) => SavedQuotesScreen(),
+          },
+        ),
       ),
     );
   }
