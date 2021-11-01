@@ -15,6 +15,10 @@ class HomeLoading extends HomeState {
 }
 
 class HomeLoaded extends HomeState {
+  final Quote? randomQuote;
+
+  const HomeLoaded({required this.randomQuote});
+
   @override
   List<String> get props => [];
 }
