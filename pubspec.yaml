@@ -15,9 +15,13 @@ dependencies:
   bloc: ^7.2.1
   flutter_bloc: ^7.3.1
 
+  # Network
+  dio: ^4.0.1
+
   #Utils
   equatable: ^2.0.3
   intl: ^0.17.0
+  shimmer_animation: ^2.1.0
 
 dev_dependencies:
   flutter_test:
