@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFf7f7f7),
+        backgroundColor: Theme.of(context).backgroundColor,
         extendBodyBehindAppBar: true,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

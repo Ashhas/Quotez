@@ -18,6 +18,7 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
           icon: Icon(
             Icons.favorite_border,
             size: 25,
+            color: Theme.of(context).iconTheme.color,
           ),
         ),
         ElevatedButton(
@@ -30,6 +31,7 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
           ),
           style: ElevatedButton.styleFrom(
             fixedSize: const Size(80, 80),
+            primary: Theme.of(context).primaryColor,
             shape: const CircleBorder(
               side: BorderSide.none,
             ),
@@ -40,6 +42,7 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
           icon: Icon(
             Icons.share,
             size: 25,
+            color: Theme.of(context).iconTheme.color,
           ),
         ),
       ],

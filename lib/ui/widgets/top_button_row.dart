@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotez/utils/constants/ui_const.dart';
 
 class TopButtonRow extends StatefulWidget {
   const TopButtonRow({Key? key}) : super(key: key);
@@ -17,11 +18,14 @@ class _TopButtonRowState extends State<TopButtonRow> {
         children: [
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, "/saved_quotes_screen");
+              Navigator.pushNamed(
+                context,
+                UiConst.savedQuotesScreenRoute,
+              );
             },
             child: Icon(
               Icons.favorite_border,
-              color: Colors.black45,
+              color: Theme.of(context).iconTheme.color,
             ),
             style: ElevatedButton.styleFrom(
               primary: Colors.white,
@@ -33,7 +37,7 @@ class _TopButtonRowState extends State<TopButtonRow> {
             onPressed: () {},
             child: Icon(
               Icons.settings,
-              color: Colors.black45,
+              color: Theme.of(context).iconTheme.color,
             ),
             style: ElevatedButton.styleFrom(
               primary: Colors.white,
