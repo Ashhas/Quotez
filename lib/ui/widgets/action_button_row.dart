@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
+import 'package:quotez/bloc/home_screen/home_bloc.dart';
+import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
+import 'package:quotez/bloc/home_screen/share_button/share_bloc.dart';
 
 class ActionButtonRow extends StatefulWidget {
   const ActionButtonRow({Key? key}) : super(key: key);
@@ -9,12 +14,20 @@ class ActionButtonRow extends StatefulWidget {
 
 class _ActionButtonRowState extends State<ActionButtonRow> {
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<QuoteButtonBloc>(context).add(InitiateQuoteButton());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<FavoriteBloc>(context).add(AddQuoteToFavorites());
+          },
           icon: Icon(
             Icons.favorite_border,
             size: 25,
@@ -22,7 +35,9 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
           ),
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
+          },
           child: Center(
             child: Icon(
               Icons.sync,
@@ -38,7 +53,9 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<ShareBloc>(context).add(ShareQuote());
+          },
           icon: Icon(
             Icons.share,
             size: 25,
