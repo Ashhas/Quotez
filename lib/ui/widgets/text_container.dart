@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:quotez/data/model/quote.dart';
 
 class TextContainer extends StatefulWidget {
-  const TextContainer({Key? key}) : super(key: key);
+  final Quote? randomQuote;
+
+  const TextContainer({Key? key, this.randomQuote}) : super(key: key);
 
   @override
   _TextContainerState createState() => _TextContainerState();
@@ -20,13 +23,20 @@ class _TextContainerState extends State<TextContainer> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "“In software, we rarely have meaningful requirements. Even if we do, the only measure of success that matters is whether our solution solves the customer’s shifting idea of what their problem is.”",
+            widget.randomQuote != null
+                ? widget.randomQuote!.quote.toString()
+                : "--",
             textAlign: TextAlign.center,
           ),
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.06,
           ),
-          Text("— Jeff Atwood"),
+          Text(
+            widget.randomQuote != null
+                ? "- ${widget.randomQuote!.author.toString()}"
+                : "--",
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );

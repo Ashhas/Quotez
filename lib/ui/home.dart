@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/ui/widgets/action_button_row.dart';
 import 'package:quotez/ui/widgets/text_container.dart';
+import 'package:quotez/ui/widgets/text_container_loading.dart';
 import 'package:quotez/ui/widgets/top_button_row.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +15,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,21 +41,30 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget topRowWidget() {
-    return Align(
+    return const Align(
       alignment: Alignment.topRight,
       child: TopButtonRow(),
     );
   }
 
   Widget textWidget() {
-    return TextContainer();
+    return BlocBuilder<HomeBloc, HomeState>(
+        builder: (BuildContext context, state) {
+      if (state is HomeLoading) {
+        return const TextContainerLoading();
+      } else if (state is HomeLoaded) {
+        return TextContainer(randomQuote: state.randomQuote);
+      } else {
+        return Container();
+      }
+    });
   }
 
   Widget actionRowWidget() {
     return Padding(
       padding:
           EdgeInsets.only(bottom: (MediaQuery.of(context).size.height) * 0.05),
-      child: ActionButtonRow(),
+      child: const ActionButtonRow(),
     );
   }
 }
