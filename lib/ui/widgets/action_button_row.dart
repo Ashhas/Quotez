@@ -23,15 +23,36 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        IconButton(
-          onPressed: () {
-            BlocProvider.of<FavoriteBloc>(context).add(AddQuoteToFavorites());
+        BlocBuilder<FavoriteBloc, FavoriteState>(
+          builder: (BuildContext context, state) {
+            if (state is FavoriteUnpressed) {
+              return IconButton(
+                onPressed: () {
+                  BlocProvider.of<FavoriteBloc>(context)
+                      .add(AddQuoteToFavorites());
+                },
+                icon: Icon(
+                  Icons.favorite_border,
+                  size: 25,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              );
+            } else if (state is FavoritePressed) {
+              return IconButton(
+                onPressed: () {
+                  BlocProvider.of<FavoriteBloc>(context)
+                      .add(RemoveQuoteToFavorites());
+                },
+                icon: Icon(
+                  Icons.favorite,
+                  size: 25,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              );
+            } else {
+              return Container();
+            }
           },
-          icon: Icon(
-            Icons.favorite_border,
-            size: 25,
-            color: Theme.of(context).iconTheme.color,
-          ),
         ),
         ElevatedButton(
           onPressed: () {
