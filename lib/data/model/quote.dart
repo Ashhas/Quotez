@@ -1,33 +1,32 @@
-class Quote {
-  late String _author;
-  late int _id;
-  late String _quote;
-  late String _permalink;
+import 'package:hive/hive.dart';
+
+part 'quote.g.dart';
+
+@HiveType(typeId: 0)
+class Quote extends HiveObject {
+  @HiveField(0)
+  late String author;
+
+  @HiveField(1)
+  late int id;
+
+  @HiveField(2)
+  late String quote;
+
+  @HiveField(3)
+  late String permalink;
 
   Quote({
-    required String author,
-    required int id,
-    required String quote,
-    required String permalink,
-  }) {
-    _author = author;
-    _id = id;
-    _quote = quote;
-    _permalink = permalink;
-  }
-
-  String get author => _author;
-
-  int get id => _id;
-
-  String get quote => _quote;
-
-  String get permalink => _permalink;
+    required this.author,
+    required this.id,
+    required this.quote,
+    required this.permalink,
+  });
 
   Quote.fromJson(dynamic json) {
-    _author = json['author'];
-    _id = json['id'];
-    _quote = json['quote'];
-    _permalink = json['permalink'];
+    author = json['author'];
+    id = json['id'];
+    quote = json['quote'];
+    permalink = json['permalink'];
   }
 }
