@@ -13,10 +13,18 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   Stream<FavoriteState> mapEventToState(FavoriteEvent event) async* {
     if (event is AddQuoteToFavorites) {
       yield* _mapFavoriteButtonPressed(event, state);
+    } else if (event is RemoveQuoteToFavorites) {
+      yield* _mapFavoriteButtonUnpressed(event, state);
     }
   }
 
   Stream<FavoriteState> _mapFavoriteButtonPressed(
       FavoriteEvent event, FavoriteState state) async* {
+    yield FavoritePressed();
+  }
+
+  Stream<FavoriteState> _mapFavoriteButtonUnpressed(
+      FavoriteEvent event, FavoriteState state) async* {
+    yield FavoriteUnpressed();
   }
 }

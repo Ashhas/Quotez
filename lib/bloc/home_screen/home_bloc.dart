@@ -6,12 +6,14 @@ import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../data/model/quote_response.dart';
+
 part 'home_event.dart';
 
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  QuoteRepository quoteRepository = QuoteRepository();
+  QuoteRepository quoteRepository;
 
   HomeBloc({required this.quoteRepository}) : super(HomeInit());
 
@@ -27,9 +29,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> _mapGetRandomQuoteToState(HomeState state) async* {
     yield HomeLoading();
 
-    Quote? newRandomQuote = await quoteRepository.getRandomQuote();
+    //Get Quote Response
+    var newRandomQuote = await quoteRepository.getRandomQuote();
 
-    yield HomeLoaded(randomQuote: newRandomQuote);
+    //Check based on QuoteResponse
+    if (newRandomQuote is SuccesResponse) {
+      log("Successfully received a new quote");
+      yield HomeLoaded(randomQuote: newRandomQuote.newQuote);
+    } else if (newRandomQuote is ErrorResponse) {
+      log("There has been an error");
+      yield HomeLoaded(randomQuote: newRandomQuote.newQuote);
+    }
   }
 
   Stream<HomeState> _mapShareQuoteToState(ShareQuote event) async* {

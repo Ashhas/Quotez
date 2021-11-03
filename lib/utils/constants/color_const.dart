@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorConst {
+abstract class ColorConst {
   static const Color kabisaMediumAquamarine = Color(0xFF55cd96);
   static const Color kabisaLightGrey = Color(0xFFbfdbcf);
   static const Color kabisaDarkSlateGrey = Color(0xFF2d2837);
