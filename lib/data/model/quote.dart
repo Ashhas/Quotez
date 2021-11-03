@@ -30,13 +30,4 @@ class Quote {
     _quote = json['quote'];
     _permalink = json['permalink'];
   }
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['author'] = _author;
-    map['id'] = _id;
-    map['quote'] = _quote;
-    map['permalink'] = _permalink;
-    return map;
-  }
 }
