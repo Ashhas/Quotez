@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotez/utils/constants/color_const.dart';
 
-class AppTheme {
+abstract class AppTheme {
   static ThemeData getDefaultTheme() {
     return ThemeData(
         primaryColor: ColorConst.kabisaMediumAquamarine,
