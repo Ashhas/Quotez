@@ -13,7 +13,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  QuoteRepository quoteRepository = QuoteRepository();
+  QuoteRepository quoteRepository;
 
   HomeBloc({required this.quoteRepository}) : super(HomeInit());
 

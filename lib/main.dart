@@ -27,35 +27,39 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final QuoteRepository quoteRepository = QuoteRepository();
 
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider<QuoteRepository>(
-            create: (context) => quoteRepository),
-      ],
-      child: MultiBlocProvider(
+    return RepositoryProvider(
+      create: (context) => quoteRepository,
+      child: MultiRepositoryProvider(
         providers: [
-          BlocProvider(
-            create: (context) => HomeBloc(
-              quoteRepository: quoteRepository,
-            ),
-          ),
-          BlocProvider(
-            create: (context) => QuoteButtonBloc(
-              homeBloc: BlocProvider.of<HomeBloc>(context),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => FavoriteBloc(),
-          )
+          RepositoryProvider<QuoteRepository>(
+              create: (context) => quoteRepository),
         ],
-        child: MaterialApp(
-          title: UiConst.appName,
-          theme: AppTheme.getDefaultTheme(),
-          initialRoute: UiConst.homeScreenRoute,
-          routes: {
-            UiConst.homeScreenRoute: (context) => HomeScreen(),
-            UiConst.savedQuotesScreenRoute: (context) => SavedQuotesScreen(),
-          },
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => HomeBloc(
+                quoteRepository:
+                    RepositoryProvider.of<QuoteRepository>(context),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => QuoteButtonBloc(
+                homeBloc: BlocProvider.of<HomeBloc>(context),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => FavoriteBloc(),
+            )
+          ],
+          child: MaterialApp(
+            title: UiConst.appName,
+            theme: AppTheme.getDefaultTheme(),
+            initialRoute: UiConst.homeScreenRoute,
+            routes: {
+              UiConst.homeScreenRoute: (context) => HomeScreen(),
+              UiConst.savedQuotesScreenRoute: (context) => SavedQuotesScreen(),
+            },
+          ),
         ),
       ),
     );
