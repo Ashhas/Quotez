@@ -13,6 +13,10 @@ class InitiateFavoriteButton extends FavoriteEvent {
 }
 
 class AddQuoteToFavorites extends FavoriteEvent {
+  final Quote? newQuote;
+
+  const AddQuoteToFavorites({required this.newQuote});
+
   @override
   List<Object> get props => [];
 }
