@@ -28,6 +28,7 @@ class _TextContainerState extends State<TextContainer> {
                 ? widget.randomQuote!.quote.toString()
                 : "",
             textAlign: TextAlign.center,
+            style: Theme.of(context).primaryTextTheme.headline6,
           ),
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.06,
@@ -37,6 +38,7 @@ class _TextContainerState extends State<TextContainer> {
                 ? "- ${widget.randomQuote!.author.toString()}"
                 : "",
             textAlign: TextAlign.center,
+            style: Theme.of(context).primaryTextTheme.headline5,
           ),
         ],
       ),
