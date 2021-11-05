@@ -35,4 +35,10 @@ class QuoteRepository {
       quote.delete();
     }
   }
+
+  // Remove All Quotes from local database
+  Future<void> removeAllQuotes() async {
+    Box _quotesDb = await Hive.openBox('quotesBox');
+    _quotesDb.clear();
+  }
 }
