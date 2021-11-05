@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
+import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
 import 'package:quotez/bloc/simple_bloc_observer.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
@@ -46,6 +47,10 @@ class MyApp extends StatelessWidget {
         ],
         child: MultiBlocProvider(
           providers: [
+            BlocProvider(
+              lazy: false,
+              create: (context) => NetworkConnectivityBloc(),
+            ),
             BlocProvider(
               create: (context) => HomeBloc(
                 quoteRepository:
