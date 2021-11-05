@@ -7,7 +7,7 @@ import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart'
 import 'package:quotez/bloc/simple_bloc_observer.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home/home.dart';
-import 'package:quotez/ui/saved_quotes_screen.dart';
+import 'package:quotez/ui/saved_quotes/saved_quotes_screen.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
 import 'package:quotez/utils/constants/theme_const.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
