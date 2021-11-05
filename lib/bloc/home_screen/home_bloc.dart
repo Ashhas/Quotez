@@ -3,11 +3,11 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quotez/data/model/quote.dart';
+import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
+import 'package:quotez/utils/constants/ui_const.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-
-import '../../data/model/quote_response.dart';
 
 part 'home_event.dart';
 
@@ -39,10 +39,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     //Check based on QuoteResponse
     if (newRandomQuote is SuccesResponse) {
-      log("Successfully received a new quote");
+      log(UiConst.quoteRequestError);
       yield HomeLoaded(randomQuote: newRandomQuote.newQuote);
     } else if (newRandomQuote is ErrorResponse) {
-      log("There has been an error");
+      log(UiConst.generalError);
       yield HomeLoaded(randomQuote: newRandomQuote.newQuote);
     }
   }
@@ -52,7 +52,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       Share.share(
           "\"${event.shareQuote!.quote}\"\n - ${event.shareQuote!.author}");
     } else {
-      log("No quote loaded yet!");
+      log(UiConst.shareError);
     }
   }
 
