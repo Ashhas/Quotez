@@ -19,6 +19,8 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       yield* _mapFavoriteButtonPressed(event);
     } else if (event is RemoveQuoteToFavorites) {
       yield* _mapFavoriteButtonUnpressed(event);
+    } else if (event is ResetFavoriteButton) {
+      yield* _mapResetFavoriteButton();
     }
   }
 
@@ -38,5 +40,9 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     if (event.quote != null) {
       quoteRepository.removeQuote(event.quote);
     }
+  }
+
+  Stream<FavoriteState> _mapResetFavoriteButton() async* {
+    yield FavoriteUnpressed();
   }
 }
