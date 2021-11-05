@@ -11,7 +11,7 @@
  
 
 ## Download
-The Android version can be download in [Releases].
+The Android version can be downloaded in [Releases].
 
 
 ## Features ✔️
