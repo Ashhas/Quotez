@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
-import 'package:quotez/ui/widgets/action_button_row.dart';
-import 'package:quotez/ui/widgets/text_container.dart';
-import 'package:quotez/ui/widgets/text_container_loading.dart';
-import 'package:quotez/ui/widgets/top_button_row.dart';
+import 'package:quotez/ui/home/widgets/action_button_row.dart';
+import 'package:quotez/ui/home/widgets/home_no_connectivity_widget.dart';
+import 'package:quotez/ui/home/widgets/text_container.dart';
+import 'package:quotez/ui/home/widgets/text_container_loading.dart';
+import 'package:quotez/ui/home/widgets/top_button_row.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -27,14 +28,31 @@ class _HomeScreenState extends State<HomeScreen>
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         extendBodyBehindAppBar: true,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            topRowWidget(),
-            textWidget(),
-            actionRowWidget(),
-          ],
+        body: BlocBuilder<HomeBloc, HomeState>(
+          builder: (BuildContext context, state) {
+            if (state is HomeNoNetwork) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  topRowWidget(),
+                  const Expanded(
+                    child: HomeNoConnectivityScreen(),
+                  ),
+                ],
+              );
+            } else {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  topRowWidget(),
+                  textWidget(),
+                  actionRowWidget(),
+                ],
+              );
+            }
+          },
         ),
       ),
     );

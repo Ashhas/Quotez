@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 import '../../data/model/quote_response.dart';
 
@@ -23,6 +24,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       yield* _mapGetRandomQuoteToState(state);
     } else if (event is ShareQuote) {
       yield* _mapShareQuoteToState(event);
+    } else if (event is NoNetworkRequest) {
+      yield* _mapHomeNoNetworkToState();
+    } else if (event is ReloadHome) {
+      yield* _mapReloadHomeToState();
     }
   }
 
@@ -48,6 +53,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           "\"${event.shareQuote!.quote}\"\n - ${event.shareQuote!.author}");
     } else {
       log("No quote loaded yet!");
+    }
+  }
+
+  Stream<HomeState> _mapHomeNoNetworkToState() async* {
+    yield HomeNoNetwork();
+  }
+
+  Stream<HomeState> _mapReloadHomeToState() async* {
+    //Connectivity check
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult != ConnectivityResult.none) {
+      yield ReloadedHome();
+    } else {
+      yield HomeNoNetwork();
     }
   }
 }
