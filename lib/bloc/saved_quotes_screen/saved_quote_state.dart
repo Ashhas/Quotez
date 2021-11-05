@@ -9,6 +9,11 @@ class SavedQuoteInit extends SavedQuoteState {
   List<Object> get props => [];
 }
 
+class LoadingSavedQuotes extends SavedQuoteState {
+  @override
+  List<Object> get props => [];
+}
+
 class SavedQuotesLoaded extends SavedQuoteState {
   final List<Quote>? savedQuotes;
 

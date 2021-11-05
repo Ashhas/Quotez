@@ -21,6 +21,8 @@ class SavedQuotesBloc extends Bloc<SavedQuoteEvent, SavedQuoteState> {
   }
 
   Stream<SavedQuoteState> _mapGetAllSavedQuotesToState() async* {
+    yield LoadingSavedQuotes();
+
     //Get Quote Response
     var savedQuotes = await quoteRepository.getSavedQuotes();
 
