@@ -18,10 +18,25 @@ class SavedQuotesBloc extends Bloc<SavedQuoteEvent, SavedQuoteState> {
 
   @override
   Stream<SavedQuoteState> mapEventToState(SavedQuoteEvent event) async* {
-    if (event is GetAllSavedQuotes) {
+    if (event is CheckSavedQuotesCount) {
+      yield* _mapCheckSavedQuotesCountToState();
+    } else if (event is GetAllSavedQuotes) {
       yield* _mapGetAllSavedQuotesToState();
     } else if (event is ShareSavedQuote) {
       yield* _mapShareQuoteToState(event);
+    } else if (event is DeleteAllSavedQuotes) {
+      yield* _mapDeleteAllSavedQuotesToState();
+    }
+  }
+
+  //Delete All Quotes
+  Stream<SavedQuoteState> _mapCheckSavedQuotesCountToState() async* {
+    var savedQuotes = await quoteRepository.getSavedQuotes();
+
+    if (savedQuotes != null) {
+      add(GetAllSavedQuotes());
+    } else {
+      yield NoSavedQuotes();
     }
   }
 
@@ -37,5 +52,11 @@ class SavedQuotesBloc extends Bloc<SavedQuoteEvent, SavedQuoteState> {
   //Share current quote
   Stream<SavedQuoteState> _mapShareQuoteToState(ShareSavedQuote event) async* {
     Share.share("\"${event.savedQuote.quote}\"\n - ${event.savedQuote.author}");
+  }
+
+  //Delete All Quotes
+  Stream<SavedQuoteState> _mapDeleteAllSavedQuotesToState() async* {
+    await quoteRepository.removeAllQuotes();
+    yield NoSavedQuotes();
   }
 }
