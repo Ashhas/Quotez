@@ -8,6 +8,8 @@ abstract class UiConst {
   static const savedQuotesScreenRoute = "/saved_quotes_screen";
 
   //Screen Constants
+  static const savedQuoteScreenTitle = "Saved Quotes";
+  static const savedQuoteScreenNoData = "No Saved Quotes!";
   static const splashText = "Splash";
   static const reloadButtonTitle = "Reload";
   static const noNetworkMessage = "Not connected to the internet";
