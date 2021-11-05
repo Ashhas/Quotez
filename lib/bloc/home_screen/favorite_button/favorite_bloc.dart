@@ -28,7 +28,6 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     yield FavoritePressed();
 
     if (event.newQuote != null) {
-      print(event.newQuote);
       quoteRepository.saveQuote(event.newQuote);
     }
   }
@@ -38,7 +37,6 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     yield FavoriteUnpressed();
 
     if (event.quote != null) {
-      print(event.quote);
       quoteRepository.removeQuote(event.quote);
     }
   }

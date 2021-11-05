@@ -21,7 +21,6 @@ class QuoteRepository {
   }
 
   Future<void> saveQuote(Quote? quote) async {
-    print(quote!.quote);
     Box _quotesDb = await Hive.openBox('quotesBox');
     _quotesDb.add(quote);
   }
