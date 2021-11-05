@@ -6,4 +6,8 @@ abstract class UiConst {
   static const splashScreenRoute = "/splash_screen";
   static const homeScreenRoute = "/home_screen";
   static const savedQuotesScreenRoute = "/saved_quotes_screen";
+
+  //Screen Constants
+  static const reloadButtonTitle = "Reload";
+  static const noNetworkMessage = "Not connected to the internet";
 }

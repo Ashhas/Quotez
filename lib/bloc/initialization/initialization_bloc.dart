@@ -20,6 +20,8 @@ class InitializationBloc
       InitializationEvent event) async* {
     if (event is InitializeApp) {
       yield* _mapAppStartedEventToState();
+    } else if (event is ReloadWithNetwork) {
+      yield* _mapReloadWithNetworkToState();
     }
   }
 
@@ -32,6 +34,17 @@ class InitializationBloc
 
     //Register Adapter to convert Quote Objects
     Hive.registerAdapter(QuoteAdapter());
+
+    //Connectivity check
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult != ConnectivityResult.none) {
+      yield InitializedState();
+    } else {
+      yield NoNetworkOnStartup();
+    }
+  }
+
+  Stream<InitializationState> _mapReloadWithNetworkToState() async* {
 
     //Connectivity check
     var connectivityResult = await (Connectivity().checkConnectivity());

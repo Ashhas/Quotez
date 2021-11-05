@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/ui/home/widgets/action_button_row.dart';
+import 'package:quotez/ui/home/widgets/home_no_connectivity_widget.dart';
 import 'package:quotez/ui/home/widgets/text_container.dart';
 import 'package:quotez/ui/home/widgets/text_container_loading.dart';
 import 'package:quotez/ui/home/widgets/top_button_row.dart';
@@ -35,9 +36,9 @@ class _HomeScreenState extends State<HomeScreen>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   topRowWidget(),
-                  Expanded(
-                    child: Container(),
-                  )
+                  const Expanded(
+                    child: HomeNoConnectivityScreen(),
+                  ),
                 ],
               );
             } else {

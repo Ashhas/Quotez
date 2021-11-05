@@ -22,3 +22,8 @@ class NoNetworkRequest extends HomeEvent {
   @override
   List<Object> get props => [];
 }
+
+class ReloadHome extends HomeEvent {
+  @override
+  List<Object> get props => [];
+}

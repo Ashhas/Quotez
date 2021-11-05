@@ -12,7 +12,7 @@ class _TopButtonRowState extends State<TopButtonRow> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 5, right: 10),
+      padding: const EdgeInsets.only(top: 5, right: 10),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
