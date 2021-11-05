@@ -7,6 +7,7 @@ import 'package:quotez/ui/home/widgets/text_container.dart';
 import 'package:quotez/ui/home/widgets/text_container_loading.dart';
 import 'package:quotez/ui/home/widgets/top_button_row.dart';
 
+/// Homescreen
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

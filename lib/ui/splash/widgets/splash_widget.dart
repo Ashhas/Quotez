@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quotez/utils/constants/ui_const.dart';
 
-import '../../../utils/constants/ui_const.dart';
-
+/// Splash Widget
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key}) : super(key: key);
 

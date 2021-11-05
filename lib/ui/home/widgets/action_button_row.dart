@@ -4,6 +4,7 @@ import 'package:quotez/ui/home/widgets/share_button.dart';
 
 import 'favorite_button.dart';
 
+/// Row Widget that contains the buttons with the most imported features
 class ActionButtonRow extends StatefulWidget {
   const ActionButtonRow({Key? key}) : super(key: key);
 
