@@ -18,6 +18,10 @@ dependencies:
   # Network
   dio: ^4.0.1
 
+  #Database
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
+
   #Utils
   equatable: ^2.0.3
   share_plus: ^3.0.4
@@ -27,7 +31,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  hive_generator: ^1.1.1
+  build_runner: ^2.1.4
   flutter_lints: ^1.0.0
 
 

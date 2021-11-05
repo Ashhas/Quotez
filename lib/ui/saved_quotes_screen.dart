@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quotez/bloc/saved_quotes_screen/saved_quote_bloc.dart';
 
 class SavedQuotesScreen extends StatefulWidget {
   const SavedQuotesScreen({Key? key}) : super(key: key);
@@ -8,6 +10,13 @@ class SavedQuotesScreen extends StatefulWidget {
 }
 
 class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    BlocProvider.of<SavedQuotesBloc>(context).add(GetAllSavedQuotes());
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,7 +31,23 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
           iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
           backgroundColor: Colors.white,
         ),
-        body: Container(),
+        body: BlocBuilder<SavedQuotesBloc, SavedQuoteState>(
+          builder: (BuildContext context, state) {
+            if (state is SavedQuotesLoaded) {
+              return ListView.builder(
+                  padding: const EdgeInsets.all(8),
+                  itemCount: state.savedQuotes!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                      title: Text(state.savedQuotes![index].quote),
+                      subtitle: Text(state.savedQuotes![index].author),
+                    );
+                  });
+            } else {
+              return Container();
+            }
+          },
+        ),
       ),
     );
   }
