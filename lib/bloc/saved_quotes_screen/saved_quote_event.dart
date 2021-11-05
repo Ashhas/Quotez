@@ -8,3 +8,12 @@ class GetAllSavedQuotes extends SavedQuoteEvent {
   @override
   List<Object> get props => [];
 }
+
+class ShareSavedQuote extends SavedQuoteEvent {
+  final Quote savedQuote;
+
+  const ShareSavedQuote({required this.savedQuote});
+
+  @override
+  List<Object> get props => [];
+}
