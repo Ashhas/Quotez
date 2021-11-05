@@ -1,22 +1,13 @@
 part of 'network_connectivity_bloc.dart';
 
-abstract class NetworkConnectionEvent extends Equatable {
-  const NetworkConnectionEvent();
+abstract class NetworkConnectivityEvent extends Equatable {
+  const NetworkConnectivityEvent();
 }
 
-class UpdateNetworkConnection extends NetworkConnectionEvent {
+class UpdateNetworkConnectionFromStream extends NetworkConnectivityEvent {
   final ConnectivityResult connectivityResult;
 
-  UpdateNetworkConnection({this.connectivityResult});
-
-  @override
-  List<Object> get props => [];
-}
-
-class UpdateNetworkConnectionFromStream extends NetworkConnectionEvent {
-  final ConnectivityResult connectivityResult;
-
-  UpdateNetworkConnectionFromStream({this.connectivityResult});
+  const UpdateNetworkConnectionFromStream({required this.connectivityResult});
 
   @override
   List<Object> get props => [];
