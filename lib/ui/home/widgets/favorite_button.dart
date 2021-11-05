@@ -43,7 +43,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
               }
             },
             icon: Icon(
-              isPressed ? Icons.favorite : Icons.favorite_border,
+              isPressed ? Icons.bookmark : Icons.bookmark_add_outlined,
               size: 25,
               color: Theme.of(context).iconTheme.color,
             ),

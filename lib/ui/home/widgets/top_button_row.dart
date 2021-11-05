@@ -24,19 +24,7 @@ class _TopButtonRowState extends State<TopButtonRow> {
               );
             },
             child: Icon(
-              Icons.favorite_border,
-              color: Theme.of(context).iconTheme.color,
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              textStyle: TextStyle(fontSize: 15),
-            ),
-          ),
-          const SizedBox(width: 10),
-          ElevatedButton(
-            onPressed: () {},
-            child: Icon(
-              Icons.settings,
+              Icons.bookmark,
               color: Theme.of(context).iconTheme.color,
             ),
             style: ElevatedButton.styleFrom(
