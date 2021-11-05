@@ -4,7 +4,17 @@ abstract class SavedQuoteEvent extends Equatable {
   const SavedQuoteEvent();
 }
 
+class CheckSavedQuotesCount extends SavedQuoteEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class GetAllSavedQuotes extends SavedQuoteEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class DeleteAllSavedQuotes extends SavedQuoteEvent {
   @override
   List<Object> get props => [];
 }

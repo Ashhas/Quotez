@@ -14,6 +14,11 @@ class LoadingSavedQuotes extends SavedQuoteState {
   List<Object> get props => [];
 }
 
+class NoSavedQuotes extends SavedQuoteState {
+  @override
+  List<Object> get props => [];
+}
+
 class SavedQuotesLoaded extends SavedQuoteState {
   final List<Quote>? savedQuotes;
 
