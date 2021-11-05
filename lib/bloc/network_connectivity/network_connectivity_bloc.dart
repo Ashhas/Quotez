@@ -8,6 +8,8 @@ part 'network_connectivity_event.dart';
 
 part 'network_connectivity_state.dart';
 
+///Bloc listens to changes in the network connectivity
+///Based on the [ConnectivityResult], the state will be update or changed
 class NetworkConnectivityBloc
     extends Bloc<NetworkConnectivityEvent, NetworkConnectivityState> {
   NetworkConnectivityBloc() : super(InitialNetworkConnectionState()) {

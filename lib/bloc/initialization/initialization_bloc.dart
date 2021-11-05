@@ -6,11 +6,14 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quotez/data/model/quote.dart';
+import 'package:quotez/ui/splash/splash_screen.dart';
 
 part 'initialization_event.dart';
 
 part 'initialization_state.dart';
 
+///Bloc that initializes Hive db & does initial network check
+///This Bloc executes during the [SplashScreen] and determines when to show a no network screen
 class InitializationBloc
     extends Bloc<InitializationEvent, InitializationState> {
   InitializationBloc() : super(InitialState());
@@ -45,7 +48,6 @@ class InitializationBloc
   }
 
   Stream<InitializationState> _mapReloadWithNetworkToState() async* {
-
     //Connectivity check
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult != ConnectivityResult.none) {

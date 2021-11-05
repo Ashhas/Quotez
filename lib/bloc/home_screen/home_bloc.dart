@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
+import 'package:quotez/ui/home/home.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -13,6 +14,8 @@ part 'home_event.dart';
 
 part 'home_state.dart';
 
+///Bloc that maps the states and event of the [HomeScreen].
+///This Bloc handles quote requests, share events & connectivity states
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   QuoteRepository quoteRepository;
 
@@ -31,6 +34,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
+  //Do random quote request
   Stream<HomeState> _mapGetRandomQuoteToState(HomeState state) async* {
     yield HomeLoading();
 
@@ -47,19 +51,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
+  //Share current quote
   Stream<HomeState> _mapShareQuoteToState(ShareQuote event) async* {
     if (event.shareQuote != null) {
       Share.share(
           "\"${event.shareQuote!.quote}\"\n - ${event.shareQuote!.author}");
     } else {
+      //Log if an error occurs
       log(UiConst.shareError);
     }
   }
 
+  //Handle request when there is no network connectivity
   Stream<HomeState> _mapHomeNoNetworkToState() async* {
     yield HomeNoNetwork();
   }
 
+  //Check to see if the HomeScreen can be reloaded
   Stream<HomeState> _mapReloadHomeToState() async* {
     //Connectivity check
     var connectivityResult = await (Connectivity().checkConnectivity());
