@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
-import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
 import 'package:quotez/ui/widgets/quote_button.dart';
 import 'package:quotez/ui/widgets/share_button.dart';

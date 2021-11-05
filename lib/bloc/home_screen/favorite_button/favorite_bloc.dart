@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/data/model/quote.dart';

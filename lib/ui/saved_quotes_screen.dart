@@ -1,9 +1,6 @@
-import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_bloc.dart';
-import 'package:quotez/data/model/quote.dart';
 
 class SavedQuotesScreen extends StatefulWidget {
   const SavedQuotesScreen({Key? key}) : super(key: key);
