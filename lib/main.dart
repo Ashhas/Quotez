@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             BlocProvider(
+              lazy: false,
               create: (context) => QuoteButtonBloc(
                 homeBloc: BlocProvider.of<HomeBloc>(context),
               ),

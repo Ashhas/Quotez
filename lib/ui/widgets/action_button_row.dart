@@ -15,12 +15,6 @@ class ActionButtonRow extends StatefulWidget {
 
 class _ActionButtonRowState extends State<ActionButtonRow> {
   @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<QuoteButtonBloc>(context).add(InitiateQuoteButton());
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
