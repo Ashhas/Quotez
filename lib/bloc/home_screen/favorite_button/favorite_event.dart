@@ -22,6 +22,10 @@ class AddQuoteToFavorites extends FavoriteEvent {
 }
 
 class RemoveQuoteToFavorites extends FavoriteEvent {
+  final Quote? quote;
+
+  const RemoveQuoteToFavorites({required this.quote});
+
   @override
   List<Object> get props => [];
 }

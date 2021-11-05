@@ -25,4 +25,10 @@ class QuoteRepository {
     Box _quotesDb = await Hive.openBox('quotesBox');
     _quotesDb.add(quote);
   }
+
+  Future<void> removeQuote(Quote? quote) async {
+    if (quote != null) {
+      quote.delete();
+    }
+  }
 }

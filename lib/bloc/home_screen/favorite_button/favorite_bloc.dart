@@ -27,8 +27,6 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       AddQuoteToFavorites event) async* {
     yield FavoritePressed();
 
-    print(event.newQuote);
-
     if (event.newQuote != null) {
       print(event.newQuote);
       quoteRepository.saveQuote(event.newQuote);
@@ -36,7 +34,12 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   }
 
   Stream<FavoriteState> _mapFavoriteButtonUnpressed(
-      FavoriteEvent event) async* {
+      RemoveQuoteToFavorites event) async* {
     yield FavoriteUnpressed();
+
+    if (event.quote != null) {
+      print(event.quote);
+      quoteRepository.removeQuote(event.quote);
+    }
   }
 }
