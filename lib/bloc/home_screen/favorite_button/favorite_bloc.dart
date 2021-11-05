@@ -8,6 +8,8 @@ part 'favorite_event.dart';
 
 part 'favorite_state.dart';
 
+///Bloc that keeps track of the state the [FavoriteButton] widget currently has.
+///Based on the given event, this bloc can: Save, Delete a [Quote] or Reset widget in UI
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   QuoteRepository quoteRepository;
 
@@ -24,6 +26,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     }
   }
 
+  //Save Quote in Box
   Stream<FavoriteState> _mapFavoriteButtonPressed(
       AddQuoteToFavorites event) async* {
     yield FavoritePressed();
@@ -33,6 +36,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     }
   }
 
+  //Remove current quote from box (after adding it)
   Stream<FavoriteState> _mapFavoriteButtonUnpressed(
       RemoveQuoteToFavorites event) async* {
     yield FavoriteUnpressed();
@@ -42,6 +46,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     }
   }
 
+  //Set a new state to reset the widget in UI
   Stream<FavoriteState> _mapResetFavoriteButton() async* {
     yield FavoriteUnpressed();
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
+///Row Widget for extra navigation destinations
 class TopButtonRow extends StatefulWidget {
   const TopButtonRow({Key? key}) : super(key: key);
 

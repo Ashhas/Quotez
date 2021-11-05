@@ -5,6 +5,7 @@ import 'package:quotez/ui/home/home.dart';
 import 'package:quotez/ui/splash/widgets/splash_no_connectivity_screen.dart';
 import 'package:quotez/ui/splash/widgets/splash_widget.dart';
 
+/// Splash screen, determines what widget to show
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 

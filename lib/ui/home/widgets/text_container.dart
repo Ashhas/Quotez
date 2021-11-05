@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotez/data/model/quote.dart';
 
+/// Widget that displays the quote from [Quote]
 class TextContainer extends StatefulWidget {
   final Quote? randomQuote;
 

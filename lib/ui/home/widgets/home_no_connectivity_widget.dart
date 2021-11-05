@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
+import 'package:quotez/ui/home/home.dart';
 import 'package:quotez/utils/constants/color_const.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
+/// Widget that is visible when there is no internet available in [HomeScreen]
 class HomeNoConnectivityScreen extends StatefulWidget {
   const HomeNoConnectivityScreen({Key? key}) : super(key: key);
 
@@ -28,6 +30,7 @@ class _HomeNoConnectivityScreenState extends State<HomeNoConnectivityScreen> {
             const Text(UiConst.noNetworkMessage),
             ElevatedButton(
               onPressed: () {
+                // Check internet connection; Reload HomeScreen if it is possible
                 BlocProvider.of<HomeBloc>(context).add(ReloadHome());
               },
               child: const Text(UiConst.reloadButtonTitle),

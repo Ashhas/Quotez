@@ -3,11 +3,14 @@ import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
+import 'package:quotez/ui/home/widgets/quote_button.dart';
 
 part 'quote_button_event.dart';
 
 part 'quote_button_state.dart';
 
+///Bloc that keeps track of the state and events from the [QuoteButton] widget.
+///This Bloc listens to [HomeBLoc] and changes states to control the animation in the UI
 class QuoteButtonBloc extends Bloc<QuoteButtonEvent, QuoteButtonState> {
   final HomeBloc homeBloc;
   StreamSubscription? homeSubscription;

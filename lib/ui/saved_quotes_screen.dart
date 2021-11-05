@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_bloc.dart';
 
+///Screen that displays all saved quotes in a listview
 class SavedQuotesScreen extends StatefulWidget {
   const SavedQuotesScreen({Key? key}) : super(key: key);
 

@@ -4,6 +4,7 @@ import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
 
+/// Widget that handles quote request
 class QuoteButton extends StatefulWidget {
   const QuoteButton({Key? key}) : super(key: key);
 
@@ -35,6 +36,7 @@ class _QuoteButtonState extends State<QuoteButton>
     return BlocListener<QuoteButtonBloc, QuoteButtonState>(
       listener: (BuildContext context, state) {
         if (state is QuoteButtonPressed) {
+          // Do Icon Rotation
           _controller.reset();
           _controller.forward();
         }
@@ -43,6 +45,7 @@ class _QuoteButtonState extends State<QuoteButton>
         builder: (BuildContext context, state) {
           return ElevatedButton(
             onPressed: () {
+              // Based on the network connection, do request
               if (state is NetworkConnectionUpdatedState) {
                 BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
               } else if (state is NoNetworkConnectionState) {
