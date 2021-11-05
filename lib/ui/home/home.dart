@@ -69,13 +69,12 @@ class _HomeScreenState extends State<HomeScreen>
   Widget textWidget() {
     return BlocBuilder<HomeBloc, HomeState>(
         builder: (BuildContext context, state) {
-      if (state is HomeLoading) {
-        return const TextContainerLoading();
-      } else if (state is HomeLoaded) {
-        return TextContainer(randomQuote: state.randomQuote);
-      } else {
-        return Container();
-      }
+      return AnimatedSwitcher(
+        duration: const Duration(milliseconds: 100),
+        child: state is HomeLoaded
+            ? TextContainer(randomQuote: state.randomQuote)
+            : const TextContainerLoading(),
+      );
     });
   }
 
