@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
+import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
 
 class QuoteButton extends StatefulWidget {
   const QuoteButton({Key? key}) : super(key: key);
@@ -38,26 +39,32 @@ class _QuoteButtonState extends State<QuoteButton>
           _controller.forward();
         }
       },
-      child: ElevatedButton(
-        onPressed: () {
-          BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
-        },
-        child: Center(
-          child: RotationTransition(
-            turns: Tween(begin: 0.5, end: 0.0).animate(_controller),
-            child: const Icon(
-              Icons.sync,
-              size: 35,
+      child: BlocBuilder<NetworkConnectivityBloc, NetworkConnectivityState>(
+        builder: (BuildContext context, state) {
+          return ElevatedButton(
+            onPressed: () {
+              if (state is NetworkConnectionUpdatedState) {
+                BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
+              }
+            },
+            child: Center(
+              child: RotationTransition(
+                turns: Tween(begin: 0.5, end: 0.0).animate(_controller),
+                child: const Icon(
+                  Icons.sync,
+                  size: 35,
+                ),
+              ),
             ),
-          ),
-        ),
-        style: ElevatedButton.styleFrom(
-          fixedSize: const Size(80, 80),
-          primary: Theme.of(context).primaryColor,
-          shape: const CircleBorder(
-            side: BorderSide.none,
-          ),
-        ),
+            style: ElevatedButton.styleFrom(
+              fixedSize: const Size(80, 80),
+              primary: Theme.of(context).primaryColor,
+              shape: const CircleBorder(
+                side: BorderSide.none,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
