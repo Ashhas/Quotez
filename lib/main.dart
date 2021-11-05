@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
 import 'package:quotez/bloc/simple_bloc_observer.dart';
-import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home/home.dart';
 import 'package:quotez/ui/saved_quotes_screen.dart';
@@ -83,9 +81,10 @@ class MyApp extends StatelessWidget {
             theme: AppTheme.getDefaultTheme(),
             initialRoute: UiConst.splashScreenRoute,
             routes: {
-              UiConst.splashScreenRoute: (context) => SplashScreen(),
-              UiConst.homeScreenRoute: (context) => HomeScreen(),
-              UiConst.savedQuotesScreenRoute: (context) => SavedQuotesScreen(),
+              UiConst.splashScreenRoute: (context) => const SplashScreen(),
+              UiConst.homeScreenRoute: (context) => const HomeScreen(),
+              UiConst.savedQuotesScreenRoute: (context) =>
+                  const SavedQuotesScreen(),
             },
           ),
         ),

@@ -19,10 +19,8 @@ class SimpleBlocObserver extends BlocObserver {
   @override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
-    logMessage(
-        'onTransition',
-        'currentState=${transition.currentState}\n' +
-            '\tnextState=${transition.nextState}');
+    logMessage('onTransition',
+        'currentState=${transition.currentState}\n\tnextState=${transition.nextState}');
   }
 
   void logMessage(String name, Object msg) {

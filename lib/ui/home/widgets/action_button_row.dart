@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quotez/ui/home/widgets/quote_button.dart';
 import 'package:quotez/ui/home/widgets/share_button.dart';
 
-
 import 'favorite_button.dart';
 
 class ActionButtonRow extends StatefulWidget {

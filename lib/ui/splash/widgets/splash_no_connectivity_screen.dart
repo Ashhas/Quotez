@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quotez/bloc/home_screen/home_bloc.dart';
 import 'package:quotez/bloc/initialization/initialization_bloc.dart';
-import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
 import 'package:quotez/utils/constants/color_const.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 

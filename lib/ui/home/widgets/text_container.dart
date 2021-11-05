@@ -25,7 +25,7 @@ class _TextContainerState extends State<TextContainer> {
           Text(
             widget.randomQuote != null
                 ? widget.randomQuote!.quote.toString()
-                : "--",
+                : "",
             textAlign: TextAlign.center,
           ),
           SizedBox(
@@ -34,7 +34,7 @@ class _TextContainerState extends State<TextContainer> {
           Text(
             widget.randomQuote != null
                 ? "- ${widget.randomQuote!.author.toString()}"
-                : "--",
+                : "",
             textAlign: TextAlign.center,
           ),
         ],

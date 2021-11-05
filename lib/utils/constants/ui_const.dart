@@ -8,6 +8,14 @@ abstract class UiConst {
   static const savedQuotesScreenRoute = "/saved_quotes_screen";
 
   //Screen Constants
+  static const splashText = "Splash";
   static const reloadButtonTitle = "Reload";
   static const noNetworkMessage = "Not connected to the internet";
+
+  //Error Constants
+  static const generalError = "There has been an error";
+  static const shareError = "No quote loaded yet!";
+
+  //Succes Constants
+  static const quoteRequestError = "Successfully received a new quote";
 }

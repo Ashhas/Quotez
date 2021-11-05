@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/constants/ui_const.dart';
+
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key}) : super(key: key);
 
@@ -8,7 +10,7 @@ class SplashWidget extends StatelessWidget {
     return const Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Text("Splash"),
+        child: Text(UiConst.splashText),
       ),
     );
   }
