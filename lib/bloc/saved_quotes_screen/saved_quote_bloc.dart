@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
-import 'package:quotez/ui/saved_quotes_screen.dart';
+import 'package:share_plus/share_plus.dart';
 
 part 'saved_quote_event.dart';
 
@@ -20,6 +20,8 @@ class SavedQuotesBloc extends Bloc<SavedQuoteEvent, SavedQuoteState> {
   Stream<SavedQuoteState> mapEventToState(SavedQuoteEvent event) async* {
     if (event is GetAllSavedQuotes) {
       yield* _mapGetAllSavedQuotesToState();
+    } else if (event is ShareSavedQuote) {
+      yield* _mapShareQuoteToState(event);
     }
   }
 
@@ -30,5 +32,10 @@ class SavedQuotesBloc extends Bloc<SavedQuoteEvent, SavedQuoteState> {
     var savedQuotes = await quoteRepository.getSavedQuotes();
 
     yield SavedQuotesLoaded(savedQuotes);
+  }
+
+  //Share current quote
+  Stream<SavedQuoteState> _mapShareQuoteToState(ShareSavedQuote event) async* {
+    Share.share("\"${event.savedQuote.quote}\"\n - ${event.savedQuote.author}");
   }
 }
