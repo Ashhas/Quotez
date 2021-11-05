@@ -12,6 +12,11 @@ class InitiateFavoriteButton extends FavoriteEvent {
   List<Object> get props => [];
 }
 
+class ResetFavoriteButton extends FavoriteEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class AddQuoteToFavorites extends FavoriteEvent {
   final Quote? newQuote;
 
