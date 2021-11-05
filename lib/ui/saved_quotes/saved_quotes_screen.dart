@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_bloc.dart';
+import 'package:quotez/ui/saved_quotes/widgets/quotes_delete_button.dart';
+import 'package:quotez/utils/constants/ui_const.dart';
 
 import 'widgets/saved_share_button.dart';
 
@@ -17,7 +19,7 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
   void initState() {
     super.initState();
 
-    BlocProvider.of<SavedQuotesBloc>(context).add(GetAllSavedQuotes());
+    BlocProvider.of<SavedQuotesBloc>(context).add(CheckSavedQuotesCount());
   }
 
   @override
@@ -27,9 +29,12 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: AppBar(
           title: const Text(
-            "Saved Quotes",
+            UiConst.savedQuoteScreenTitle,
             style: TextStyle(color: Colors.black87),
           ),
+          actions: const [
+            QuotesDeleteButton(),
+          ],
           elevation: 0,
           iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
           backgroundColor: Colors.white,
@@ -60,6 +65,10 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
                     ),
                   );
                 },
+              );
+            } else if (state is NoSavedQuotes) {
+              return const Center(
+                child: Text(UiConst.savedQuoteScreenNoData),
               );
             } else {
               return Container();
