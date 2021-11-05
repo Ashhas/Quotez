@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_bloc.dart';
-import 'package:quotez/ui/widgets/action_button_row.dart';
-import 'package:quotez/ui/widgets/text_container.dart';
-import 'package:quotez/ui/widgets/text_container_loading.dart';
-import 'package:quotez/ui/widgets/top_button_row.dart';
+import 'package:quotez/ui/home/widgets/action_button_row.dart';
+import 'package:quotez/ui/home/widgets/text_container.dart';
+import 'package:quotez/ui/home/widgets/text_container_loading.dart';
+import 'package:quotez/ui/home/widgets/top_button_row.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
