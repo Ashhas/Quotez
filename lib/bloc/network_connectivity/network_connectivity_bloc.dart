@@ -8,48 +8,23 @@ part 'network_connectivity_event.dart';
 
 part 'network_connectivity_state.dart';
 
-class NetworkConnectionBloc
-    extends Bloc<NetworkConnectionEvent, NetworkConnectionState> {
-  StreamController<ConnectivityResult> connectionStatusController =
-      StreamController<ConnectivityResult>();
-
-  NetworkConnectionBloc() : super(InitialNetworkConnectionState()) {
+class NetworkConnectivityBloc
+    extends Bloc<NetworkConnectivityEvent, NetworkConnectivityState> {
+  NetworkConnectivityBloc() : super(InitialNetworkConnectionState()) {
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       add(UpdateNetworkConnectionFromStream(connectivityResult: result));
     });
   }
 
   @override
-  Stream<NetworkConnectionState> mapEventToState(
-      NetworkConnectionEvent event) async* {
-    if (event is UpdateNetworkConnection) {
-      yield* _mapUpdateNetworkConnectionToState(event);
-    } else if (event is UpdateNetworkConnectionFromStream) {
+  Stream<NetworkConnectivityState> mapEventToState(
+      NetworkConnectivityEvent event) async* {
+    if (event is UpdateNetworkConnectionFromStream) {
       yield* _mapUpdateNetworkConnectionFromStreamToState(event);
     }
   }
 
-  Stream<NetworkConnectionState> _mapUpdateNetworkConnectionToState(
-      UpdateNetworkConnection event) async* {
-    yield CheckingNetworkConnectionState();
-
-    //Network
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    print("Bloc Result: " + connectivityResult.toString());
-
-    if (connectivityResult == ConnectivityResult.none) {
-      yield NoNetworkConnectionState(
-        connectivityResult: connectivityResult,
-      );
-    } else if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
-      yield NetworkConnectionUpdatedState(
-        connectivityResult: connectivityResult,
-      );
-    }
-  }
-
-  Stream<NetworkConnectionState> _mapUpdateNetworkConnectionFromStreamToState(
+  Stream<NetworkConnectivityState> _mapUpdateNetworkConnectionFromStreamToState(
       UpdateNetworkConnectionFromStream event) async* {
     if (event.connectivityResult == ConnectivityResult.none) {
       yield NoNetworkConnectionState(
@@ -61,11 +36,5 @@ class NetworkConnectionBloc
         connectivityResult: event.connectivityResult,
       );
     }
-  }
-
-  @override
-  Future<void> close() {
-    connectionStatusController.close();
-    return super.close();
   }
 }
