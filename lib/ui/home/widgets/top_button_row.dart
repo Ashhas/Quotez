@@ -24,7 +24,7 @@ class _TopButtonRowState extends State<TopButtonRow> {
               );
             },
             child: Icon(
-              Icons.bookmark,
+              Icons.bookmarks,
               color: Theme.of(context).iconTheme.color,
             ),
             style: ElevatedButton.styleFrom(
