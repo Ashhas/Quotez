@@ -17,3 +17,8 @@ class ShareQuote extends HomeEvent {
   @override
   List<Object> get props => [];
 }
+
+class NoNetworkRequest extends HomeEvent {
+  @override
+  List<Object> get props => [];
+}

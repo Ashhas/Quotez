@@ -45,6 +45,8 @@ class _QuoteButtonState extends State<QuoteButton>
             onPressed: () {
               if (state is NetworkConnectionUpdatedState) {
                 BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
+              } else if (state is NoNetworkConnectionState) {
+                BlocProvider.of<HomeBloc>(context).add(NoNetworkRequest());
               }
             },
             child: Center(

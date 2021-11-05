@@ -23,6 +23,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       yield* _mapGetRandomQuoteToState(state);
     } else if (event is ShareQuote) {
       yield* _mapShareQuoteToState(event);
+    } else if (event is NoNetworkRequest) {
+      yield* _mapHomeNoNetworkToState();
     }
   }
 
@@ -49,5 +51,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } else {
       log("No quote loaded yet!");
     }
+  }
+
+  Stream<HomeState> _mapHomeNoNetworkToState() async* {
+    yield HomeNoNetwork();
   }
 }

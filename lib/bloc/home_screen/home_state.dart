@@ -23,7 +23,7 @@ class HomeLoaded extends HomeState {
   List<String> get props => [];
 }
 
-class HomeError extends HomeState {
+class HomeNoNetwork extends HomeState {
   @override
   List<Object> get props => [];
 }

@@ -27,14 +27,31 @@ class _HomeScreenState extends State<HomeScreen>
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         extendBodyBehindAppBar: true,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            topRowWidget(),
-            textWidget(),
-            actionRowWidget(),
-          ],
+        body: BlocBuilder<HomeBloc, HomeState>(
+          builder: (BuildContext context, state) {
+            if (state is HomeNoNetwork) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  topRowWidget(),
+                  Expanded(
+                    child: Container(),
+                  )
+                ],
+              );
+            } else {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  topRowWidget(),
+                  textWidget(),
+                  actionRowWidget(),
+                ],
+              );
+            }
+          },
         ),
       ),
     );
