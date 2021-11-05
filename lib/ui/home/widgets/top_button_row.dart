@@ -29,7 +29,7 @@ class _TopButtonRowState extends State<TopButtonRow> {
             ),
             style: ElevatedButton.styleFrom(
               primary: Colors.white,
-              textStyle: TextStyle(fontSize: 15),
+              textStyle: const TextStyle(fontSize: 15),
             ),
           ),
         ],
