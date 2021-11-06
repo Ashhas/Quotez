@@ -26,7 +26,7 @@ dependencies:
   equatable: ^2.0.3
   share_plus: ^3.0.4
   intl: ^0.17.0
-  shimmer_animation: ^2.1.0
+  shimmer_animation: ^2.1.0+1
   connectivity_plus: ^2.0.2
 
 dev_dependencies:
