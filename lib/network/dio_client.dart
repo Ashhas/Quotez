@@ -7,7 +7,7 @@ import 'package:quotez/utils/constants/var_const.dart';
 class DioClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: VarConst.quoteBoxKey,
+      baseUrl: VarConst.quoteApiUrl,
       connectTimeout: 5000,
       receiveTimeout: 3000,
     ),
