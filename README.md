@@ -48,13 +48,13 @@ Then to finally run the project:
 ```
 D:\-------\-------\Quotez>flutter doctor
 Doctor summary (to see all details, run flutter doctor -v):
-[√] Flutter (Channel stable, 2.5.3, on Microsoft Windows [Version 10.0.19042.1288], locale nl-NL)
-[√] Android toolchain - develop for Android devices (Android SDK version 31.0.0)
-[√] Chrome - develop for the web
-[√] Android Studio (version 2020.3)
-[√] IntelliJ IDEA Community Edition (version 2021.1)
-[√] VS Code (version 1.53.2)
-[√] Connected device (3 available)
+[✓] Flutter (Channel stable, 2.10.2, on macOS 12.1 21C52 darwin-arm, locale en-NL)
+[✓] Android toolchain - develop for Android devices (Android SDK version 32.0.0)
+[✓] Xcode - develop for iOS and macOS (Xcode 13.2.1)
+[✓] Android Studio (version 2021.1)
+[√] IntelliJ IDEA Community Edition (version 2021.3)
+[✓] Connected device (3 available)
+[✓] HTTP Host Availability
 
 • No issues found!
 ```
