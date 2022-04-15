@@ -32,6 +32,7 @@ The Android version can be downloaded in [Releases].
 - [intl](https://pub.dev/packages/intl) - Formatting dates
 - [shimmer_animation](https://pub.dev/packages/shimmer_animation) - Package to easily implement a shimmer animation
 - [connectivity_plus](https://pub.dev/packages/connectivity_plus) - See network connectivity changes (WiFi vs Cellular vs None)
+- [import_sorter](https://pub.dev/packages/import_sorter) - Dart package to automatically organize your dart imports
 
 
 ## How to Build 📱
