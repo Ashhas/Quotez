@@ -19,15 +19,14 @@ void main() {
   //Check for platform channels
   WidgetsFlutterBinding.ensureInitialized();
 
-  //Initialize Bloc Observer
   BlocOverrides.runZoned(
-    () => runApp(const MyApp()),
+    () => runApp(const App()),
     blocObserver: SimpleBlocObserver(),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,57 +34,48 @@ class MyApp extends StatelessWidget {
 
     return RepositoryProvider(
       create: (context) => quoteRepository,
-      child: MultiRepositoryProvider(
+      child: MultiBlocProvider(
         providers: [
-          RepositoryProvider<QuoteRepository>(
-              create: (context) => quoteRepository),
-        ],
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<InitializationCubit>(
-              lazy: false,
-              create: (context) => InitializationCubit(),
-            ),
-            BlocProvider(
-              lazy: false,
-              create: (context) => NetworkConnectivityCubit(),
-            ),
-            BlocProvider(
-              create: (context) => HomeCubit(
-                quoteRepository:
-                    RepositoryProvider.of<QuoteRepository>(context),
-              ),
-            ),
-            BlocProvider(
-              lazy: false,
-              create: (context) => QuoteButtonCubit(
-                homeCubit: BlocProvider.of<HomeCubit>(context),
-              ),
-            ),
-            BlocProvider(
-              create: (context) => FavoriteButtonCubit(
-                quoteRepository:
-                    RepositoryProvider.of<QuoteRepository>(context),
-              ),
-            ),
-            BlocProvider(
-              create: (context) => SavedQuotesCubit(
-                quoteRepository:
-                    RepositoryProvider.of<QuoteRepository>(context),
-              ),
-            ),
-          ],
-          child: MaterialApp(
-            title: UiConst.appName,
-            theme: AppTheme.getDefaultTheme(),
-            initialRoute: UiConst.splashScreenRoute,
-            routes: {
-              UiConst.splashScreenRoute: (context) => const SplashScreen(),
-              UiConst.homeScreenRoute: (context) => const HomeScreen(),
-              UiConst.savedQuotesScreenRoute: (context) =>
-                  const SavedQuotesScreen(),
-            },
+          BlocProvider<InitializationCubit>(
+            lazy: false,
+            create: (context) => InitializationCubit(),
           ),
+          BlocProvider(
+            lazy: false,
+            create: (context) => NetworkConnectivityCubit(),
+          ),
+          BlocProvider(
+            create: (context) => HomeCubit(
+              quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
+            ),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) => QuoteButtonCubit(
+              homeCubit: BlocProvider.of<HomeCubit>(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => FavoriteButtonCubit(
+              quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => SavedQuotesCubit(
+              quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          title: UiConst.appName,
+          theme: AppTheme.getDefaultTheme(),
+          initialRoute: UiConst.splashScreenRoute,
+          routes: {
+            UiConst.splashScreenRoute: (context) => const SplashScreen(),
+            UiConst.homeScreenRoute: (context) => const HomeScreen(),
+            UiConst.savedQuotesScreenRoute: (context) =>
+                const SavedQuotesScreen(),
+          },
         ),
       ),
     );

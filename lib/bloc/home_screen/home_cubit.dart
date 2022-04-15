@@ -39,7 +39,7 @@ class HomeCubit extends Cubit<HomeState> {
     //Connectivity check
     final connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult != ConnectivityResult.none) {
-      emit(ReloadedHome());
+      getRandomQuote();
     } else {
       emit(HomeNoNetwork());
     }
