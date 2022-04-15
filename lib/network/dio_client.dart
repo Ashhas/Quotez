@@ -16,9 +16,9 @@ class DioClient {
   Future<QuoteResponse> getRandomQuote() async {
     try {
       Response randomQuote = await _dio.get(VarConst.quoteApiEndpointRandom);
-      var newQuote = Quote.fromJson(randomQuote.data);
+      final newQuote = Quote.fromJson(randomQuote.data);
 
-      return SuccesResponse(newQuote);
+      return SuccessResponse(newQuote);
     } on DioError catch (e) {
       switch (e.type) {
         case DioErrorType.connectTimeout:

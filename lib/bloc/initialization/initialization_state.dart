@@ -1,4 +1,4 @@
-part of 'initialization_bloc.dart';
+part of 'initialization_cubit.dart';
 
 @immutable
 abstract class InitializationState extends Equatable {}

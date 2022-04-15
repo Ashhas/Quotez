@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quotez/bloc/home_screen/favorite_button/favorite_bloc.dart';
-import 'package:quotez/bloc/home_screen/home_bloc.dart';
-import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
-import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
+import 'package:quotez/bloc/home_screen/favorite_button/favorite_cubit.dart';
+import 'package:quotez/bloc/home_screen/home_cubit.dart';
+import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
+import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/bloc/simple_bloc_observer.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
-import 'package:quotez/ui/home/home.dart';
+import 'package:quotez/ui/home/home_screen.dart';
 import 'package:quotez/ui/saved_quotes/saved_quotes_screen.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
 import 'package:quotez/utils/constants/theme_const.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
-import 'bloc/initialization/initialization_bloc.dart';
-import 'bloc/saved_quotes_screen/saved_quote_bloc.dart';
+import 'bloc/initialization/initialization_cubit.dart';
+import 'bloc/saved_quotes_screen/saved_quote_cubit.dart';
 
 void main() {
   //Check for platform channels
   WidgetsFlutterBinding.ensureInitialized();
 
   //Initialize Bloc Observer
-  Bloc.observer = SimpleBlocObserver();
-
-  runApp(const MyApp());
+  BlocOverrides.runZoned(
+    () => runApp(const MyApp()),
+    blocObserver: SimpleBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -41,36 +42,34 @@ class MyApp extends StatelessWidget {
         ],
         child: MultiBlocProvider(
           providers: [
-            BlocProvider(
+            BlocProvider<InitializationCubit>(
               lazy: false,
-              create: (context) => InitializationBloc()
-                ..add(
-                  InitializeApp(),
-                ),
+              create: (context) => InitializationCubit(),
             ),
             BlocProvider(
               lazy: false,
-              create: (context) => NetworkConnectivityBloc(),
+              create: (context) => NetworkConnectivityCubit(),
             ),
             BlocProvider(
-              create: (context) => HomeBloc(
+              create: (context) => HomeCubit(
                 quoteRepository:
                     RepositoryProvider.of<QuoteRepository>(context),
               ),
             ),
             BlocProvider(
               lazy: false,
-              create: (context) => QuoteButtonBloc(
-                homeBloc: BlocProvider.of<HomeBloc>(context),
+              create: (context) => QuoteButtonCubit(
+                homeCubit: BlocProvider.of<HomeCubit>(context),
               ),
             ),
             BlocProvider(
-              create: (context) => FavoriteBloc(
-                  quoteRepository:
-                      RepositoryProvider.of<QuoteRepository>(context)),
+              create: (context) => FavoriteButtonCubit(
+                quoteRepository:
+                    RepositoryProvider.of<QuoteRepository>(context),
+              ),
             ),
             BlocProvider(
-              create: (context) => SavedQuotesBloc(
+              create: (context) => SavedQuotesCubit(
                 quoteRepository:
                     RepositoryProvider.of<QuoteRepository>(context),
               ),

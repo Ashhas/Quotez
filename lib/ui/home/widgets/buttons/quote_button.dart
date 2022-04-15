@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quotez/bloc/home_screen/home_bloc.dart';
-import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
-import 'package:quotez/bloc/network_connectivity/network_connectivity_bloc.dart';
+import 'package:quotez/bloc/home_screen/home_cubit.dart';
+import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
+import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 
 /// Widget that handles quote request
 class QuoteButton extends StatefulWidget {
@@ -33,7 +33,7 @@ class _QuoteButtonState extends State<QuoteButton>
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<QuoteButtonBloc, QuoteButtonState>(
+    return BlocListener<QuoteButtonCubit, QuoteButtonState>(
       listener: (BuildContext context, state) {
         if (state is QuoteButtonPressed) {
           // Do Icon Rotation
@@ -41,15 +41,15 @@ class _QuoteButtonState extends State<QuoteButton>
           _controller.forward();
         }
       },
-      child: BlocBuilder<NetworkConnectivityBloc, NetworkConnectivityState>(
+      child: BlocBuilder<NetworkConnectivityCubit, NetworkConnectivityState>(
         builder: (BuildContext context, state) {
           return ElevatedButton(
             onPressed: () {
               // Based on the network connection, do request
               if (state is NetworkConnectionUpdatedState) {
-                BlocProvider.of<HomeBloc>(context).add(GetRandomQuote());
+                BlocProvider.of<HomeCubit>(context).getRandomQuote();
               } else if (state is NoNetworkConnectionState) {
-                BlocProvider.of<HomeBloc>(context).add(NoNetworkRequest());
+                BlocProvider.of<HomeCubit>(context).reloadHome();
               }
             },
             child: Center(

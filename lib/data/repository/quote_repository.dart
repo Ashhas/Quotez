@@ -4,7 +4,6 @@ import 'package:quotez/network/dio_client.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quotez/utils/constants/var_const.dart';
 
-/// Repository to fetch quotes
 class QuoteRepository {
   final DioClient _dioClient = DioClient();
 

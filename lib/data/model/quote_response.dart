@@ -8,9 +8,9 @@ abstract class QuoteResponse {
   QuoteResponse(this.newQuote, this.message);
 }
 
-// On Succes -> return only quote
-class SuccesResponse extends QuoteResponse {
-  SuccesResponse(Quote? newQuote) : super(newQuote, null);
+// On Success -> return only quote
+class SuccessResponse extends QuoteResponse {
+  SuccessResponse(Quote? newQuote) : super(newQuote, null);
 }
 
 // On Error -> return only an error message

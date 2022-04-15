@@ -1,4 +1,4 @@
-part of 'home_bloc.dart';
+part of 'home_cubit.dart';
 
 abstract class HomeState extends Equatable {
   const HomeState();
@@ -10,6 +10,11 @@ class HomeInit extends HomeState {
 }
 
 class HomeLoading extends HomeState {
+  @override
+  List<String> get props => [];
+}
+
+class HomeRequestFailed extends HomeState {
   @override
   List<String> get props => [];
 }
