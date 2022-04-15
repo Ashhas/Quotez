@@ -14,7 +14,7 @@ class Quote extends HiveObject {
 
   /// Text of the quote
   @HiveField(2)
-  late String quote;
+  late String value;
 
   /// An URL where the quote can be found
   @HiveField(3)
@@ -23,14 +23,14 @@ class Quote extends HiveObject {
   Quote({
     required this.author,
     required this.id,
-    required this.quote,
+    required this.value,
     required this.permalink,
   });
 
   Quote.fromJson(dynamic json) {
     author = json['author'];
     id = json['id'];
-    quote = json['quote'];
+    value = json['quote'];
     permalink = json['permalink'];
   }
 }

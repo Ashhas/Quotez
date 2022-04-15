@@ -1,4 +1,4 @@
-part of 'network_connectivity_bloc.dart';
+part of 'network_connectivity_cubit.dart';
 
 @immutable
 abstract class NetworkConnectivityState extends Equatable {}

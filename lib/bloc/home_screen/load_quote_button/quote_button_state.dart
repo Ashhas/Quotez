@@ -1,4 +1,4 @@
-part of 'quote_button_bloc.dart';
+part of 'quote_button_cubit.dart';
 
 @immutable
 abstract class QuoteButtonState extends Equatable {

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:quotez/data/model/quote.dart';
 
 /// Widget that displays the quote from [Quote]
 class TextContainer extends StatefulWidget {
-  final Quote? randomQuote;
+  final Quote randomQuote;
 
-  const TextContainer({Key? key, this.randomQuote}) : super(key: key);
+  const TextContainer({Key? key, required this.randomQuote}) : super(key: key);
 
   @override
   _TextContainerState createState() => _TextContainerState();
@@ -24,9 +25,7 @@ class _TextContainerState extends State<TextContainer> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            widget.randomQuote != null
-                ? widget.randomQuote!.quote.toString()
-                : "",
+            widget.randomQuote.value,
             textAlign: TextAlign.center,
             style: Theme.of(context).primaryTextTheme.headline6,
           ),
@@ -34,9 +33,7 @@ class _TextContainerState extends State<TextContainer> {
             height: (MediaQuery.of(context).size.height) * 0.06,
           ),
           Text(
-            widget.randomQuote != null
-                ? "- ${widget.randomQuote!.author.toString()}"
-                : "",
+            "- ${widget.randomQuote.author}",
             textAlign: TextAlign.center,
             style: Theme.of(context).primaryTextTheme.headline5,
           ),

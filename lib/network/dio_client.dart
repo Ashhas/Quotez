@@ -1,12 +1,15 @@
 import 'dart:developer';
+
 import 'package:dio/dio.dart';
+
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
+import 'package:quotez/utils/constants/var_const.dart';
 
 class DioClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://quotes.stormconsultancy.co.uk',
+      baseUrl: VarConst.quoteApiUrl,
       connectTimeout: 5000,
       receiveTimeout: 3000,
     ),
@@ -14,10 +17,10 @@ class DioClient {
 
   Future<QuoteResponse> getRandomQuote() async {
     try {
-      Response randomQuote = await _dio.get('/random.json');
-      var newQuote = Quote.fromJson(randomQuote.data);
+      Response randomQuote = await _dio.get(VarConst.quoteApiEndpointRandom);
+      final newQuote = Quote.fromJson(randomQuote.data);
 
-      return SuccesResponse(newQuote);
+      return SuccessResponse(newQuote);
     } on DioError catch (e) {
       switch (e.type) {
         case DioErrorType.connectTimeout:

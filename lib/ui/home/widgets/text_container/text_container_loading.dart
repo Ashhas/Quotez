@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 /// Shimmer Widget when [HomeState] is [HomeLoading]
-class TextContainerLoading extends StatefulWidget {
+class TextContainerLoading extends StatelessWidget {
   const TextContainerLoading({Key? key}) : super(key: key);
 
-  @override
-  _TextContainerState createState() => _TextContainerState();
-}
-
-class _TextContainerState extends State<TextContainerLoading> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,6 +15,7 @@ class _TextContainerState extends State<TextContainerLoading> {
         top: (MediaQuery.of(context).size.height) * 0.1,
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Shimmer(
             color: Colors.grey.shade900,
@@ -28,7 +25,7 @@ class _TextContainerState extends State<TextContainerLoading> {
             ),
           ),
           SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.06,
+            height: (MediaQuery.of(context).size.height) * 0.01,
           ),
           Shimmer(
             color: Colors.grey.shade900,

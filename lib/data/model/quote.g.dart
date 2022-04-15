@@ -19,7 +19,7 @@ class QuoteAdapter extends TypeAdapter<Quote> {
     return Quote(
       author: fields[0] as String,
       id: fields[1] as int,
-      quote: fields[2] as String,
+      value: fields[2] as String,
       permalink: fields[3] as String,
     );
   }
@@ -33,7 +33,7 @@ class QuoteAdapter extends TypeAdapter<Quote> {
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
-      ..write(obj.quote)
+      ..write(obj.value)
       ..writeByte(3)
       ..write(obj.permalink);
   }
