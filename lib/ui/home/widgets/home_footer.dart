@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'buttons/favorite_button.dart';
+import 'buttons/bookmark_button.dart';
 import 'buttons/quote_button.dart';
 import 'buttons/share_button.dart';
 
