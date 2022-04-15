@@ -23,7 +23,7 @@ class SavedQuotesCubit extends Cubit<SavedQuoteState> {
   }
 
   /// [getSavedQuotesCount] Check if DB has any quotes stored
-  void getSavedQuotesCount() async {
+  void checkAvailableQuotes() async {
     final savedQuotes = await quoteRepository.getSavedQuotes();
 
     if (savedQuotes != null) {

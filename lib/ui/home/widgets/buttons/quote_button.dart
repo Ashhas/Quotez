@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
+import 'package:quotez/utils/constants/ui_const.dart';
 
 /// Widget that handles quote request
 class QuoteButton extends StatefulWidget {
@@ -46,10 +47,13 @@ class _QuoteButtonState extends State<QuoteButton>
           return ElevatedButton(
             onPressed: () {
               // Based on the network connection, do request
-              if (state is NetworkConnectionUpdatedState) {
+              if (state is NoNetworkConnectionState) {
+                Navigator.pushReplacementNamed(
+                  context,
+                  UiConst.homeNoNetworkWidgetRoute,
+                );
+              } else {
                 BlocProvider.of<HomeCubit>(context).getRandomQuote();
-              } else if (state is NoNetworkConnectionState) {
-                BlocProvider.of<HomeCubit>(context).reloadHome();
               }
             },
             child: Center(

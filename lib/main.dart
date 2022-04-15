@@ -7,6 +7,7 @@ import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart
 import 'package:quotez/bloc/simple_bloc_observer.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home/home_screen.dart';
+import 'package:quotez/ui/home/widgets/home_no_network_widget.dart';
 import 'package:quotez/ui/saved_quotes/saved_quotes_screen.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
 import 'package:quotez/utils/constants/theme_const.dart';
@@ -46,6 +47,12 @@ class App extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => HomeCubit(
+              networkCubit: BlocProvider.of<NetworkConnectivityCubit>(context),
+              quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => SavedQuotesCubit(
               quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
             ),
           ),
@@ -60,11 +67,6 @@ class App extends StatelessWidget {
               quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
             ),
           ),
-          BlocProvider(
-            create: (context) => SavedQuotesCubit(
-              quoteRepository: RepositoryProvider.of<QuoteRepository>(context),
-            ),
-          ),
         ],
         child: MaterialApp(
           title: UiConst.appName,
@@ -75,6 +77,8 @@ class App extends StatelessWidget {
             UiConst.homeScreenRoute: (context) => const HomeScreen(),
             UiConst.savedQuotesScreenRoute: (context) =>
                 const SavedQuotesScreen(),
+            UiConst.homeNoNetworkWidgetRoute: (context) =>
+                const HomeNoNetworkWidget(),
           },
         ),
       ),

@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
@@ -13,9 +15,20 @@ part 'home_state.dart';
 /// Bloc that maps the states and event of the [HomeScreen].
 /// This Bloc handles quote requests, share events & connectivity states
 class HomeCubit extends Cubit<HomeState> {
-  QuoteRepository quoteRepository;
+  final QuoteRepository quoteRepository;
+  final NetworkConnectivityCubit networkCubit;
+  StreamSubscription? networkCubitSubscription;
 
-  HomeCubit({required this.quoteRepository}) : super(HomeInit());
+  HomeCubit({required this.quoteRepository, required this.networkCubit})
+      : super(HomeInit()) {
+    networkCubitSubscription = networkCubit.stream.listen((networkState) {
+      if (networkState is NoNetworkConnectionState) {
+        emit(HomeNoNetwork());
+      } else if (networkState is NetworkConnectionUpdatedState) {
+        getRandomQuote();
+      }
+    });
+  }
 
   /// [getRandomQuote] Returns a random quote
   void getRandomQuote() async {
@@ -30,18 +43,6 @@ class HomeCubit extends Cubit<HomeState> {
     } else if (newRandomQuote is ErrorResponse) {
       log(UiConst.generalError);
       emit(HomeRequestFailed());
-    }
-  }
-
-  //Check to see if the HomeScreen can be reloaded based on network status
-  /// [reloadHome]
-  void reloadHome() async {
-    //Connectivity check
-    final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult != ConnectivityResult.none) {
-      getRandomQuote();
-    } else {
-      emit(HomeNoNetwork());
     }
   }
 }

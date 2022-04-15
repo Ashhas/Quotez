@@ -1,3 +1,5 @@
+import 'package:quotez/bloc/home_screen/home_cubit.dart';
+
 abstract class UiConst {
   //App General Strings
   static const appName = 'Quotez';
@@ -6,6 +8,7 @@ abstract class UiConst {
   static const splashScreenRoute = "/splash_screen";
   static const homeScreenRoute = "/home_screen";
   static const savedQuotesScreenRoute = "/saved_quotes_screen";
+  static const homeNoNetworkWidgetRoute = "/home_no_network_widget";
 
   //Screen Constants
   static const savedQuoteScreenTitle = "Saved Quotes";
