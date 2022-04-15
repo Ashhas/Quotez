@@ -11,7 +11,7 @@
  
 
 ## Download
-The Android version can be downloaded in [Releases].
+The Android version can be downloaded in [Releases]. The IOS version can be launched by building the app
 
 
 ## Features ✔️
