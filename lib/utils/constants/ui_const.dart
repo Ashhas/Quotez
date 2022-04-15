@@ -1,5 +1,3 @@
-import 'package:quotez/bloc/home_screen/home_cubit.dart';
-
 abstract class UiConst {
   //App General Strings
   static const appName = 'Quotez';

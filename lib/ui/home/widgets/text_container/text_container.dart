@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:quotez/data/model/quote.dart';
 
 /// Widget that displays the quote from [Quote]

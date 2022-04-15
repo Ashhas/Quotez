@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 /// Shimmer Widget when [HomeState] is [HomeLoading]

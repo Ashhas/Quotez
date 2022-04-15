@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotez/bloc/initialization/initialization_cubit.dart';
 import 'package:quotez/ui/home/home_screen.dart';
 import 'package:quotez/ui/splash/widgets/splash_no_network_overlay.dart';

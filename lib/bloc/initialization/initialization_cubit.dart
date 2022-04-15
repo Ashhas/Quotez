@@ -1,9 +1,11 @@
 import 'dart:async';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:meta/meta.dart';
+
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
 

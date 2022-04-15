@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';
 
 /// IconButton deletes all quotes from box

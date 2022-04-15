@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';
 import 'package:quotez/ui/saved_quotes/widgets/delete_quotes_button.dart';
 import 'package:quotez/ui/saved_quotes/widgets/saved_quotes_list.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
-
-import 'widgets/share_quote_button.dart';
 
 ///Screen that displays all saved quotes in a listview
 class SavedQuotesScreen extends StatefulWidget {

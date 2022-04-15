@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
-
 
 part 'favorite_state.dart';
 

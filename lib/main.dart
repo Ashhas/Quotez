@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotez/bloc/home_screen/favorite_button/favorite_cubit.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
@@ -12,7 +14,6 @@ import 'package:quotez/ui/saved_quotes/saved_quotes_screen.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
 import 'package:quotez/utils/constants/theme_const.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
-
 import 'bloc/initialization/initialization_cubit.dart';
 import 'bloc/saved_quotes_screen/saved_quote_cubit.dart';
 

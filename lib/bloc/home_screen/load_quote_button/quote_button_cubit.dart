@@ -1,7 +1,9 @@
 import 'dart:async';
+
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
+
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/ui/home/widgets/buttons/quote_button.dart';
 

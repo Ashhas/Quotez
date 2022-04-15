@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/ui/home/widgets/home_content.dart';
 import 'package:quotez/ui/home/widgets/home_footer.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/ui/saved_quotes/widgets/share_quote_button.dart';
 

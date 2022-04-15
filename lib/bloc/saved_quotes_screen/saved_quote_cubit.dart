@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 

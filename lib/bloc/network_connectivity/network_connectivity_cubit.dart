@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:equatable/equatable.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 
 part 'network_connectivity_state.dart';
 

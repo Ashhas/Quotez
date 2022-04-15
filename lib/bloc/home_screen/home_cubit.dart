@@ -1,14 +1,15 @@
 import 'dart:async';
 import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home/home_screen.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 
 part 'home_state.dart';
 
