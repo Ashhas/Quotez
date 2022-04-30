@@ -19,7 +19,7 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<SavedQuotesCubit>(context).checkAvailableQuotes();
+    BlocProvider.of<SavedQuotesCubit>(context).getAllSavedQuotes();
   }
 
   @override
