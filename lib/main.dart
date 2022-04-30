@@ -6,7 +6,6 @@ import 'package:quotez/bloc/home_screen/bookmark_button/bookmark_cubit.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
-import 'package:quotez/bloc/simple_bloc_observer.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home/home_screen.dart';
 import 'package:quotez/ui/home/widgets/home_no_network_widget.dart';
@@ -23,7 +22,6 @@ void main() {
 
   BlocOverrides.runZoned(
     () => runApp(const App()),
-    blocObserver: SimpleBlocObserver(),
   );
 }
 
