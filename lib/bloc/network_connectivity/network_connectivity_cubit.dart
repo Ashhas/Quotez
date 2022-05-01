@@ -8,11 +8,14 @@ part 'network_connectivity_state.dart';
 ///Bloc listens to changes in the network connectivity
 ///Based on the [ConnectivityResult], the state will be update or changed
 class NetworkConnectivityCubit extends Cubit<NetworkConnectivityState> {
-  NetworkConnectivityCubit() : super(InitialNetworkConnectionState()) {
+  NetworkConnectivityCubit({this.connectivityObject})
+      : super(InitialNetworkConnectionState()) {
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       updateNetworkConnection(result);
     });
   }
+
+  final Connectivity? connectivityObject;
 
   void updateNetworkConnection(ConnectivityResult result) {
     if (result == ConnectivityResult.none) {

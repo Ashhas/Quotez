@@ -5,8 +5,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
-
-class MockQuoteRepository extends Mock implements QuoteRepository {}
+import '../../mocks.dart';
 
 void main() {
   late SavedQuotesCubit savedQuotesCubit;
