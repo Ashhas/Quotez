@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:quotez/utils/constants/ui_const.dart';
-
 class InfoButton extends StatelessWidget {
   const InfoButton({
     Key? key,

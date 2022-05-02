@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/ui/home/widgets/buttons/bookmark_storage_button.dart';
 import 'package:quotez/ui/home/widgets/buttons/info_button.dart';
 import 'package:quotez/ui/home/widgets/home_content.dart';
 import 'package:quotez/ui/home/widgets/home_footer.dart';
-import 'package:quotez/ui/home/widgets/home_header.dart';
 import 'package:quotez/ui/home/widgets/home_no_network_widget.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 /// [HomeScreen]
 class HomeScreen extends StatefulWidget {

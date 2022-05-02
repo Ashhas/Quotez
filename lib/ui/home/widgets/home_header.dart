@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quotez/ui/home/widgets/buttons/info_button.dart';
 
+import 'package:quotez/ui/home/widgets/buttons/info_button.dart';
 import 'buttons/bookmark_storage_button.dart';
 
 class HomeHeader extends StatelessWidget {
