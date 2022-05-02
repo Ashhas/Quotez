@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +26,6 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: const Text(
           UiConst.savedQuoteScreenTitle,
@@ -36,8 +36,14 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
         ],
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Theme.of(context).appBarTheme.backgroundColor,
+          statusBarBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.dark,
+        ),
       ),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: SafeArea(
         child: BlocBuilder<SavedQuotesCubit, SavedQuoteState>(
           builder: (BuildContext context, state) {

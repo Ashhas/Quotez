@@ -8,9 +8,9 @@ class SplashWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: const Center(
         child: Text(UiConst.splashText),
       ),
     );

@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # UI
+  sliding_up_panel: ^2.0.0+1
+
   # BLoC
   bloc: ^8.0.3
   bloc_test: ^9.0.3

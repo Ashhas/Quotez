@@ -12,6 +12,9 @@ abstract class AppTheme {
       canvasColor: ColorConst.kabisaDarkSlateGrey,
       iconTheme: const IconThemeData(color: ColorConst.defaultIconColor),
       errorColor: ColorConst.errorTextColor,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.white
+      ),
       primaryTextTheme: const TextTheme(
         bodyText2: FontConst.bodyListTile,
         subtitle2: FontConst.subtitleListTile,

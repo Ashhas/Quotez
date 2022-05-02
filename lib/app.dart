@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,15 +21,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //     statusBarColor: Theme.of(context).backgroundColor,
-    //     systemNavigationBarColor: Theme.of(context).backgroundColor,
-    //     statusBarIconBrightness: Theme.of(context).brightness,
-    //     statusBarBrightness: Theme.of(context).brightness,
-    //   ),
-    // );
-
     final QuoteRepository quoteRepository = QuoteRepository();
 
     return RepositoryProvider(
@@ -39,7 +29,7 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider<InitializationCubit>(
             lazy: false,
-            create: (context) => InitializationCubit(),
+            create: (context) => InitializationCubit()..startApp(),
           ),
           BlocProvider(
             lazy: false,

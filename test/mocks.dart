@@ -17,6 +17,15 @@ class MockConnectivity extends Mock implements Connectivity {
   MockConnectivity({required this.connectivityCase});
 
   @override
+  Stream<ConnectivityResult> get onConnectivityChanged {
+    if (connectivityCase == ConnectivityCase.caseSuccess) {
+      return Stream.value(ConnectivityResult.wifi);
+    } else {
+      return Stream.value(ConnectivityResult.none);
+    }
+  }
+
+  @override
   Future<ConnectivityResult> checkConnectivity() {
     if (connectivityCase == ConnectivityCase.caseSuccess) {
       return Future.value(ConnectivityResult.wifi);
