@@ -32,7 +32,12 @@ The Android version can be downloaded in [Releases]. The IOS version can be laun
 - [intl](https://pub.dev/packages/intl) - Formatting dates
 - [shimmer_animation](https://pub.dev/packages/shimmer_animation) - Package to easily implement a shimmer animation
 - [connectivity_plus](https://pub.dev/packages/connectivity_plus) - See network connectivity changes (WiFi vs Cellular vs None)
+- [open_mail_app](https://pub.dev/packages/open_mail_app) - This library provides the ability to query the device for installed email apps and open those apps.
+- [url_launcher](https://pub.dev/packages/url_launcher) - A Flutter plugin for launching a URL.
+- [package_info_plus](https://pub.dev/packages/package_info_plus) - This Flutter plugin provides an API for querying information about an application package
 - [import_sorter](https://pub.dev/packages/import_sorter) - Dart package to automatically organize your dart imports
+- [mocktail](https://pub.dev/packages/mocktail) - Mock library for Dart
+- [sliding_up_panel](https://pub.dev/packages/sliding_up_panel) - A draggable Flutter widget that makes implementing a SlidingUpPanel easier
 
 
 ## How to Build 📱

@@ -2,7 +2,7 @@ name: quotez
 description: A new Flutter project.
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 0.2.0+1
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
@@ -13,6 +13,7 @@ dependencies:
 
   # UI
   sliding_up_panel: ^2.0.0+1
+
 
   # BLoC
   bloc: ^8.0.3
@@ -31,9 +32,12 @@ dependencies:
   share_plus: ^4.0.4
   intl: ^0.17.0
   shimmer_animation: ^2.1.0+1
+  open_mail_app: ^0.4.5
+  url_launcher: ^6.1.0
   connectivity_plus: ^2.3.0
   import_sorter: ^4.6.0
   mocktail: ^0.3.0
+  package_info_plus: ^1.4.2
 
 dev_dependencies:
   flutter_test:

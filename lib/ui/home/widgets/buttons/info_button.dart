@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class InfoButton extends StatelessWidget {
   const InfoButton({
     Key? key,
-    this.function,
+    this.onPressed,
   }) : super(key: key);
 
-  final VoidCallback? function;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: function,
+      onPressed: onPressed,
       child: Icon(
         Icons.info_outline,
         color: Theme.of(context).iconTheme.color,

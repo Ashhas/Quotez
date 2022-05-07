@@ -20,6 +20,7 @@ class SplashScreen extends StatelessWidget {
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarColor: Theme.of(context).backgroundColor,
+        systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: BlocBuilder<InitializationCubit, InitializationState>(
         builder: (context, initState) {

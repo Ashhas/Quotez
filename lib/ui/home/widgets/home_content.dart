@@ -6,8 +6,11 @@ import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/ui/home/widgets/text_container/text_container.dart';
 import 'package:quotez/ui/home/widgets/text_container/text_container_loading.dart';
 
+/// [HomeContent]
 class HomeContent extends StatelessWidget {
-  const HomeContent({Key? key}) : super(key: key);
+  const HomeContent({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

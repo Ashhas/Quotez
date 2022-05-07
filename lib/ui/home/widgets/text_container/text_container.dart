@@ -15,11 +15,12 @@ class TextContainer extends StatefulWidget {
 class _TextContainerState extends State<TextContainer> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       padding: EdgeInsets.only(
         right: 30,
         left: 30,
-        top: (MediaQuery.of(context).size.height) * 0.1,
+        top: (MediaQuery.of(context).size.height) * 0.05,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
