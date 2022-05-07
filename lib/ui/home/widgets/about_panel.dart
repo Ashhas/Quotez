@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:open_mail_app/open_mail_app.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_divider.dart';
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_header.dart';
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_list_tile.dart';
