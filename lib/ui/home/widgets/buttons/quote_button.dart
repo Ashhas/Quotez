@@ -7,7 +7,8 @@ import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dar
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
-/// Widget that handles quote request
+/// [QuoteButton] executes request to fetch new random quote
+/// Also, it animates whenever it is pressed
 class QuoteButton extends StatefulWidget {
   const QuoteButton({Key? key}) : super(key: key);
 

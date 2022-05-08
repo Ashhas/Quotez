@@ -7,9 +7,12 @@ import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/utils/constants/var_const.dart';
 
 class DioClient {
+  static const _quoteApiUrl = "http://quotes.stormconsultancy.co.uk";
+  static const _quoteApiEndpointRandom = "/random.json";
+
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: VarConst.quoteApiUrl,
+      baseUrl: _quoteApiUrl,
       connectTimeout: 5000,
       receiveTimeout: 3000,
     ),
@@ -17,7 +20,7 @@ class DioClient {
 
   Future<QuoteResponse> getRandomQuote() async {
     try {
-      Response randomQuote = await _dio.get(VarConst.quoteApiEndpointRandom);
+      Response randomQuote = await _dio.get(_quoteApiEndpointRandom);
       final newQuote = Quote.fromJson(randomQuote.data);
 
       return SuccessResponse(newQuote);

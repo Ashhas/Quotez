@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'package:quotez/ui/home/widgets/about_panel.dart';
+
+/// [InfoButton] opens up the [AboutPanel] when pressed
 class InfoButton extends StatelessWidget {
   const InfoButton({
-    Key? key,
     this.onPressed,
+    Key? key,
   }) : super(key: key);
 
   final VoidCallback? onPressed;

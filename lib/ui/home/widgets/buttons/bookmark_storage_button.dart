@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:quotez/utils/constants/ui_const.dart';
 
+/// [BookmarkStorageButton] navigates to [SavedQuotesScreen] on pressed
 class BookmarkStorageButton extends StatelessWidget {
   const BookmarkStorageButton({Key? key}) : super(key: key);
 

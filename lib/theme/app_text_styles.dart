@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class FontConst {
+abstract class AppTextStyles {
   //Quote TextStyle
   static const quoteText =
       TextStyle(fontWeight: FontWeight.w500, fontSize: 25, color: Colors.black);

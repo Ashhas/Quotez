@@ -8,7 +8,7 @@ import 'package:quotez/ui/saved_quotes/widgets/delete_quotes_button.dart';
 import 'package:quotez/ui/saved_quotes/widgets/saved_quotes_list.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
-///Screen that displays all saved quotes in a listview
+/// [SavedQuotesScreen] displays all saved quotes in a listview
 class SavedQuotesScreen extends StatefulWidget {
   const SavedQuotesScreen({Key? key}) : super(key: key);
 

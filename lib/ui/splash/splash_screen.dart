@@ -8,7 +8,11 @@ import 'package:quotez/ui/home/home_screen.dart';
 import 'package:quotez/ui/splash/widgets/splash_no_network_overlay.dart';
 import 'package:quotez/ui/splash/widgets/splash_widget.dart';
 
-/// [SplashScreen] determines what widget to show
+/// [SplashScreen] determines what widget to show:
+/// - [SplashWidget] is shown with [InitialState] and is always shown first
+/// - [SplashNoNetworkOverlay] is shown when there there is no connection with [NoNetworkOnStartup]
+///   (Does not check if the connection actually provides internet-access)
+/// - [HomeScreen] is shown on [InitializedState]
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 

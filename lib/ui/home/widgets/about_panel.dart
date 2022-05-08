@@ -13,6 +13,7 @@ import 'package:quotez/utils/constants/ui_const.dart';
 import 'package:quotez/utils/constants/var_const.dart';
 import 'package:quotez/utils/url_launcher_util.dart';
 
+/// [AboutPanel] displays information about the app and extra communication
 class AboutPanel extends StatefulWidget {
   final ScrollController? scrollController;
 

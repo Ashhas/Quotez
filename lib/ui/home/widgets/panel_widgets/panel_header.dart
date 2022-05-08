@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Standard widget used at the top of the panel
 class PanelHeader extends StatelessWidget {
   const PanelHeader({Key? key}) : super(key: key);
 

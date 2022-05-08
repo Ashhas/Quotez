@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/bookmark_button/bookmark_cubit.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 
-/// Widget that saves or removes quotes from the database
+/// [FavoriteButton] saves or removes quotes from the database on pressed
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({Key? key}) : super(key: key);
 

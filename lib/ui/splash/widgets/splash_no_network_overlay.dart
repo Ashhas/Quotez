@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quotez/bloc/initialization/initialization_cubit.dart';
-import 'package:quotez/utils/constants/color_const.dart';
+import 'package:quotez/theme/app_colors.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
 /// Screen that displays if there is no internet connectivity on app startup
@@ -25,7 +25,7 @@ class SplashNoNetworkOverlay extends StatelessWidget {
               },
               child: const Text(UiConst.reloadButtonTitle),
               style: ElevatedButton.styleFrom(
-                primary: ColorConst.kabisaMediumAquamarine,
+                primary: AppColors.kabisaMediumAquamarine,
                 textStyle: const TextStyle(fontSize: 15),
               ),
             ),

@@ -10,7 +10,7 @@ import 'package:quotez/ui/home/widgets/home_footer.dart';
 import 'package:quotez/ui/home/widgets/home_header.dart';
 import 'package:quotez/ui/home/widgets/home_no_network_widget.dart';
 
-/// [HomeScreen]
+/// [HomeScreen] is the main screen of the app, containing most of the content
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

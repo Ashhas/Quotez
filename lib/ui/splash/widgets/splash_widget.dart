@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:quotez/utils/constants/ui_const.dart';
 
-/// [SplashWidget]
+/// [SplashWidget] default splash screen
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key}) : super(key: key);
 

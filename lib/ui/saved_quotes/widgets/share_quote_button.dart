@@ -6,11 +6,14 @@ import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/utils/share_util.dart';
 
-/// ShareButton that shares saved quotes to other socialmedia
+/// [ShareQuoteButton] shares saved quotes to other social-media when pressed
 class ShareQuoteButton extends StatelessWidget {
   final Quote quote;
 
-  const ShareQuoteButton({Key? key, required this.quote}) : super(key: key);
+  const ShareQuoteButton({
+    required this.quote,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
