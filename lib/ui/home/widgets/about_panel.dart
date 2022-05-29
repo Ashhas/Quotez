@@ -34,6 +34,33 @@ class _AboutPanelState extends State<AboutPanel> {
     return packageInfo;
   }
 
+  /// Try and send an email using the [open_mail_app] package
+  Future<void> sendEmail() async {
+    final result = await OpenMailApp.composeNewEmailInMailApp(
+      emailContent: EmailContent(
+        to: [VarConst.developerEmail],
+        subject: VarConst.emailSubjectTemplate,
+      ),
+    );
+
+    // If no mail apps found, show error
+    if (!result.didOpen && !result.canOpen) {
+      log(UiConst.noEmailApp);
+      // iOS: if multiple mail apps found, show dialog to select.
+      // There is no native intent/default app system in iOS so
+      // you have to do it yourself.
+    } else if (!result.didOpen && result.canOpen) {
+      showDialog(
+        context: context,
+        builder: (_) {
+          return MailAppPickerDialog(
+            mailApps: result.options,
+          );
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     initPackageInfo().then((packageInfo) {
@@ -62,8 +89,8 @@ class _AboutPanelState extends State<AboutPanel> {
                         padding: EdgeInsets.only(top: 15, bottom: 10),
                         child: CircleAvatar(
                           radius: 70,
-                          foregroundImage: NetworkImage(
-                            'https://i.ytimg.com/vi/ZJcS4IQ0D_M/maxresdefault.jpg',
+                          foregroundImage: AssetImage(
+                            "assets/app_icon.png",
                           ),
                         ),
                       ),
@@ -87,32 +114,7 @@ class _AboutPanelState extends State<AboutPanel> {
                       PanelListTile(
                         title: UiConst.writeMeAnEmail,
                         tileIcon: const Icon(Icons.mail_outline),
-                        onTap: () async {
-                          var result =
-                              await OpenMailApp.composeNewEmailInMailApp(
-                            emailContent: EmailContent(
-                              to: [VarConst.developerEmail],
-                              subject: VarConst.emailSubjectTemplate,
-                            ),
-                          );
-
-                          // If no mail apps found, show error
-                          if (!result.didOpen && !result.canOpen) {
-                            log(UiConst.noEmailApp);
-                            // iOS: if multiple mail apps found, show dialog to select.
-                            // There is no native intent/default app system in iOS so
-                            // you have to do it yourself.
-                          } else if (!result.didOpen && result.canOpen) {
-                            showDialog(
-                              context: context,
-                              builder: (_) {
-                                return MailAppPickerDialog(
-                                  mailApps: result.options,
-                                );
-                              },
-                            );
-                          }
-                        },
+                        onTap: () => sendEmail(),
                       ),
                       const PanelDivider(),
                       PanelListTile(
