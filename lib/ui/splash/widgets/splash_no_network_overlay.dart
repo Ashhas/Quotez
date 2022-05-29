@@ -25,7 +25,7 @@ class SplashNoNetworkOverlay extends StatelessWidget {
               },
               child: const Text(UiConst.reloadButtonTitle),
               style: ElevatedButton.styleFrom(
-                primary: AppColors.kabisaMediumAquamarine,
+                primary: AppColors.mediumAquamarine,
                 textStyle: const TextStyle(fontSize: 15),
               ),
             ),

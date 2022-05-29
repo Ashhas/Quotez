@@ -6,10 +6,10 @@ import 'package:quotez/theme/app_text_styles.dart';
 abstract class AppTheme {
   static ThemeData getDefaultTheme() {
     return ThemeData(
-      primaryColor: AppColors.kabisaMediumAquamarine,
-      hintColor: AppColors.kabisaLightGrey,
+      primaryColor: AppColors.mediumAquamarine,
+      hintColor: AppColors.lightGrey,
       backgroundColor: AppColors.backgroundColor,
-      canvasColor: AppColors.kabisaDarkSlateGrey,
+      canvasColor: AppColors.darkSlateGrey,
       iconTheme: const IconThemeData(color: AppColors.defaultIconColor),
       errorColor: AppColors.errorTextColor,
       appBarTheme: const AppBarTheme(backgroundColor: Colors.white),

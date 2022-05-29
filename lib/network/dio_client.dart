@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
-import 'package:quotez/utils/constants/var_const.dart';
 
 class DioClient {
   static const _quoteApiUrl = "http://quotes.stormconsultancy.co.uk";
