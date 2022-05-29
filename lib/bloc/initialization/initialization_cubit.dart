@@ -20,7 +20,7 @@ class InitializationCubit extends Cubit<InitializationState> {
 
   void startApp() async {
     //Delay for Splash Screen
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
 
     //Initializing Hive DB
     Hive.initFlutter();
