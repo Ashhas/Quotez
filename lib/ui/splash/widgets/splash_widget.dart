@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/theme/app_colors.dart';
 
 /// [SplashWidget] default splash screen
 class SplashWidget extends StatelessWidget {
@@ -8,10 +7,16 @@ class SplashWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: const Center(
-        child: Text(UiConst.splashText),
+    return const Scaffold(
+      backgroundColor: AppColors.kabisaMediumAquamarine,
+      body: Center(
+        child: Image(
+          width: 100,
+          height: 100,
+          image: AssetImage(
+            "assets/app_icon.png",
+          ),
+        ),
       ),
     );
   }

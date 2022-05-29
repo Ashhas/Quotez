@@ -14,7 +14,6 @@ dependencies:
   # UI
   sliding_up_panel: ^2.0.0+1
 
-
   # BLoC
   bloc: ^8.0.3
   bloc_test: ^9.0.3
@@ -38,6 +37,7 @@ dependencies:
   import_sorter: ^4.6.0
   mocktail: ^0.3.0
   package_info_plus: ^1.4.2
+  flutter_native_splash: ^2.1.6
 
 dev_dependencies:
   flutter_test:
@@ -45,10 +45,16 @@ dev_dependencies:
   hive_generator: ^1.1.2
   build_runner: ^2.1.8
   flutter_lints: ^1.0.4
-
-
-flutter:
-  uses-material-design: true
+  flutter_launcher_icons: ^0.9.2
 
 import_sorter:
   comments: false
+
+flutter_native_splash:
+  color: '#55CD96'
+
+flutter:
+  assets:
+    - assets/
+
+  uses-material-design: true
