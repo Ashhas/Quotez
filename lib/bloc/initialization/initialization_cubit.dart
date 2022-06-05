@@ -15,12 +15,12 @@ part 'initialization_state.dart';
 ///This Bloc executes during the [SplashScreen] and determines when to show a no network screen.
 class InitializationCubit extends Cubit<InitializationState> {
   InitializationCubit({this.connectivityObject}) : super(InitialState());
-
+  
   final Connectivity? connectivityObject;
 
   void startApp() async {
     // Delay for Splash Screen.
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 1500));
 
     // Initializing Hive DB.
     Hive.initFlutter();
