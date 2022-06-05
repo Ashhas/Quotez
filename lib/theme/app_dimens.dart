@@ -16,7 +16,7 @@ abstract class AppDimens {
 
   // Size Unit Percentage.
   static const double sizeUnitPercentageS = 0.1;
-  static const double sizeUnitPercentageM = 0.6;
+  static const double sizeUnitPercentageM = 0.06;
 
   // Padding.
   static const double paddingM = 10;
