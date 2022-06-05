@@ -1,4 +1,4 @@
-abstract class UiConst {
+abstract class UiStrings {
   // App General Strings.
   static const appName = 'Code Quotes';
 

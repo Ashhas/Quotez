@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
 /// [HomeNoNetworkView] shows if there is no internet connectivity while on the home screen.
 class HomeNoNetworkView extends StatelessWidget {
@@ -10,7 +10,7 @@ class HomeNoNetworkView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Expanded(
       child: Center(
-        child: Text(UiConst.noNetworkMessage),
+        child: Text(UiStrings.noNetworkMessage),
       ),
     );
   }

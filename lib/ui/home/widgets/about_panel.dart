@@ -9,8 +9,8 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_divider.dart';
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_header.dart';
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_list_tile.dart';
-import 'package:quotez/utils/constants/ui_const.dart';
-import 'package:quotez/utils/constants/var_const.dart';
+import 'package:quotez/utils/constants.dart';
+import 'package:quotez/utils/ui_strings.dart';
 import 'package:quotez/utils/url_util.dart';
 
 /// [AboutPanel] displays information about the app and extra communication.
@@ -39,14 +39,14 @@ class _AboutPanelState extends State<AboutPanel> {
   Future<void> sendEmail() async {
     final result = await OpenMailApp.composeNewEmailInMailApp(
       emailContent: EmailContent(
-        to: [VarConst.developerEmail],
-        subject: VarConst.emailSubjectTemplate,
+        to: [Constants.developerEmail],
+        subject: Constants.emailSubjectTemplate,
       ),
     );
 
     // If no mail apps found, show error.
     if (!result.didOpen && !result.canOpen) {
-      log(UiConst.noEmailApp);
+      log(UiStrings.noEmailApp);
       // iOS: if multiple mail apps found, show dialog to select.
       // There is no native intent/default app system in iOS so
       // you have to do it yourself.
@@ -95,7 +95,7 @@ class _AboutPanelState extends State<AboutPanel> {
                           ),
                         ),
                       ),
-                      const Text(UiConst.appName),
+                      const Text(UiStrings.appName),
                       Text('v${appInfo?.version}'),
                       const SizedBox(height: 30),
                     ],
@@ -105,20 +105,20 @@ class _AboutPanelState extends State<AboutPanel> {
                     children: [
                       const PanelDivider(),
                       PanelListTile(
-                        title: UiConst.githubRepoTitle,
+                        title: UiStrings.githubRepoTitle,
                         tileIcon: const Icon(Icons.code),
                         onTap: () async =>
-                            UrlUtil.openUrl(VarConst.githubRepositoryUrl),
+                            UrlUtil.openUrl(Constants.githubRepositoryUrl),
                       ),
                       const PanelDivider(),
                       PanelListTile(
-                        title: UiConst.writeMeAnEmail,
+                        title: UiStrings.writeMeAnEmail,
                         tileIcon: const Icon(Icons.mail_outline),
                         onTap: () => sendEmail(),
                       ),
                       const PanelDivider(),
                       const PanelListTile(
-                        title: UiConst.rateTheApp,
+                        title: UiStrings.rateTheApp,
                         tileIcon: Icon(Icons.rate_review_outlined),
                         onTap: null,
                       ),

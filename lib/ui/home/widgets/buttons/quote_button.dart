@@ -6,7 +6,7 @@ import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/theme/app_dimens.dart';
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
 /// [QuoteButton] executes request to fetch new random quote.
 /// Also, it animates whenever it is pressed.
@@ -54,7 +54,7 @@ class _QuoteButtonState extends State<QuoteButton>
               if (state is NoNetworkConnectionState) {
                 Navigator.pushReplacementNamed(
                   context,
-                  UiConst.homeNoNetworkWidgetRoute,
+                  UiStrings.homeNoNetworkWidgetRoute,
                 );
               } else {
                 BlocProvider.of<HomeCubit>(context).getRandomQuote();

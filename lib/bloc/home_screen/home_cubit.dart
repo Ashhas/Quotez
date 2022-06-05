@@ -9,7 +9,7 @@ import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
 import 'package:quotez/ui/home/home_screen.dart';
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
 part 'home_state.dart';
 
@@ -39,10 +39,10 @@ class HomeCubit extends Cubit<HomeState> {
 
     // Check based on QuoteResponse.
     if (newRandomQuote is SuccessResponse) {
-      log(UiConst.quoteRequestError);
+      log(UiStrings.quoteRequestError);
       emit(HomeLoaded(randomQuote: newRandomQuote.newQuote));
     } else if (newRandomQuote is ErrorResponse) {
-      log(UiConst.generalError);
+      log(UiStrings.generalError);
       emit(HomeRequestFailed());
     }
   }

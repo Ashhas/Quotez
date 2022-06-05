@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
 /// [BookmarkStorageButton] navigates to [SavedQuotesScreen] on-pressed.
 class BookmarkStorageButton extends StatelessWidget {
@@ -12,7 +12,7 @@ class BookmarkStorageButton extends StatelessWidget {
       onPressed: () {
         Navigator.pushNamed(
           context,
-          UiConst.savedQuotesScreenRoute,
+          UiStrings.savedQuotesScreenRoute,
         );
       },
       child: Icon(

@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
 import 'package:quotez/network/dio_client.dart';
-import 'package:quotez/utils/constants/var_const.dart';
+import 'package:quotez/utils/constants.dart';
 
 class QuoteRepository {
   final DioClient _dioClient = DioClient();
@@ -15,7 +15,7 @@ class QuoteRepository {
 
   // Get all saved Quotes from local database.
   Future<List<Quote>?> getSavedQuotes() async {
-    Box _quotesDb = await Hive.openBox(VarConst.quoteBoxKey);
+    Box _quotesDb = await Hive.openBox(Constants.quoteBoxKey);
 
     return _quotesDb.values.isNotEmpty
         ? _quotesDb.values.toList().cast<Quote>()
@@ -24,7 +24,7 @@ class QuoteRepository {
 
   // Save Quote in local database.
   Future<void> saveQuote(Quote? quote) async {
-    Box _quotesDb = await Hive.openBox(VarConst.quoteBoxKey);
+    Box _quotesDb = await Hive.openBox(Constants.quoteBoxKey);
     _quotesDb.add(quote);
   }
 
@@ -37,7 +37,7 @@ class QuoteRepository {
 
   // Remove All Quotes from local database.
   Future<void> removeAllQuotes() async {
-    Box _quotesDb = await Hive.openBox(VarConst.quoteBoxKey);
+    Box _quotesDb = await Hive.openBox(Constants.quoteBoxKey);
     _quotesDb.clear();
   }
 }

@@ -14,7 +14,7 @@ import 'package:quotez/ui/home/home_screen.dart';
 import 'package:quotez/ui/home/widgets/home_no_network_view.dart';
 import 'package:quotez/ui/saved_quotes/saved_quotes_screen.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -57,15 +57,15 @@ class App extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-          title: UiConst.appName,
+          title: UiStrings.appName,
           theme: AppTheme.getDefaultTheme(),
-          initialRoute: UiConst.splashScreenRoute,
+          initialRoute: UiStrings.splashScreenRoute,
           routes: {
-            UiConst.splashScreenRoute: (context) => const SplashScreen(),
-            UiConst.homeScreenRoute: (context) => const HomeScreen(),
-            UiConst.savedQuotesScreenRoute: (context) =>
+            UiStrings.splashScreenRoute: (context) => const SplashScreen(),
+            UiStrings.homeScreenRoute: (context) => const HomeScreen(),
+            UiStrings.savedQuotesScreenRoute: (context) =>
                 const SavedQuotesScreen(),
-            UiConst.homeNoNetworkWidgetRoute: (context) =>
+            UiStrings.homeNoNetworkWidgetRoute: (context) =>
                 const HomeNoNetworkView(),
           },
         ),

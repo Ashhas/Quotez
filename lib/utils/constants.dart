@@ -1,4 +1,4 @@
-abstract class VarConst {
+abstract class Constants {
   static const quoteBoxKey = "quotesBox";
   static const githubRepositoryUrl = "https://github.com/Ashhas/Quotez";
   static const developerEmail = "bruyningaschwin@gmail.com";

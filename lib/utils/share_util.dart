@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:share_plus/share_plus.dart';
 
-import '../data/model/quote.dart';
-import 'constants/ui_const.dart';
+import 'package:quotez/data/model/quote.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
 /// [ShareUtil] Handles sharing messages in different formats.
 abstract class ShareUtil {
@@ -12,7 +12,7 @@ abstract class ShareUtil {
     try {
       Share.share("\"${quote?.value}\"\n - ${quote?.author}");
     } catch (e) {
-      log(UiConst.shareError);
+      log(UiStrings.shareError);
     }
   }
 }
