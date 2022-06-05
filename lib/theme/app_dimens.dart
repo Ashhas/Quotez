@@ -9,6 +9,7 @@ abstract class AppDimens {
   // Border Radius.
   static const double borderRadiusS = 5;
   static const double borderRadiusM = 12;
+  static const double borderRadiusXL = 18;
 
   // Size Unit.
   static const double sizeUnitS = 5;

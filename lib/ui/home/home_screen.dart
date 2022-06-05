@@ -35,12 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Theme.of(context).backgroundColor,
       body: SlidingUpPanel(
         controller: panelController,
-        maxHeight:
-            MediaQuery.of(context).size.height * AppDimens.panelHeightPercentage,
+        maxHeight: MediaQuery.of(context).size.height *
+            AppDimens.panelHeightPercentage,
         minHeight: 0,
         backdropEnabled: true,
         borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(18),
+          top: Radius.circular(
+            AppDimens.borderRadiusXL,
+          ),
         ),
         panelBuilder: (ScrollController sc) => AboutPanel(scrollController: sc),
         body: SafeArea(
