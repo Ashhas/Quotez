@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Standard divider used in the panels
+/// Standard divider used in the panels.
 class PanelDivider extends StatelessWidget {
   const PanelDivider({
     Key? key,

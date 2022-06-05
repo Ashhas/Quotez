@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:quotez/theme/app_colors.dart';
 
-/// [SplashWidget] default splash screen
+/// [SplashWidget] default splash screen widget.
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key}) : super(key: key);
 

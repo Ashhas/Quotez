@@ -13,14 +13,14 @@ class SavedQuotesCubit extends Cubit<SavedQuoteState> {
 
   SavedQuotesCubit({required this.quoteRepository}) : super(SavedQuoteInit());
 
-  /// [getAllSavedQuotes] Loads all quotes from DB
+  /// [getAllSavedQuotes] Loads all quotes from DB.
   void getAllSavedQuotes() async {
     emit(LoadingSavedQuotes());
 
-    // Get Quote Response
+    // Get Quote Response.
     final savedQuotes = await quoteRepository.getSavedQuotes();
 
-    // Check if DB has any quotes stored
+    // Check if DB has any quotes stored.
     if (savedQuotes != null && savedQuotes.isNotEmpty) {
       emit(SavedQuotesLoaded(savedQuotes));
     } else {
@@ -28,7 +28,7 @@ class SavedQuotesCubit extends Cubit<SavedQuoteState> {
     }
   }
 
-  /// Delete All Quotes
+  /// Delete All Quotes.
   void deleteAllSavedQuotes() async {
     await quoteRepository.removeAllQuotes();
     emit(NoSavedQuotes());

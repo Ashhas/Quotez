@@ -24,8 +24,10 @@ class SavedQuotesList extends StatelessWidget {
             savedQuotes[index].value,
             style: Theme.of(context).primaryTextTheme.bodyText2,
           ),
-          subtitle: Text("- ${savedQuotes[index].author}",
-              style: Theme.of(context).primaryTextTheme.subtitle2),
+          subtitle: Text(
+            "- ${savedQuotes[index].author}",
+            style: Theme.of(context).primaryTextTheme.subtitle2,
+          ),
           trailing: ShareQuoteButton(
             quote: savedQuotes[index],
           ),

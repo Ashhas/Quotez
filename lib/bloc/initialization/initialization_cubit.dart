@@ -12,20 +12,20 @@ import 'package:quotez/ui/splash/splash_screen.dart';
 part 'initialization_state.dart';
 
 ///Bloc that initializes Hive db & does initial network check
-///This Bloc executes during the [SplashScreen] and determines when to show a no network screen
+///This Bloc executes during the [SplashScreen] and determines when to show a no network screen.
 class InitializationCubit extends Cubit<InitializationState> {
   InitializationCubit({this.connectivityObject}) : super(InitialState());
 
   final Connectivity? connectivityObject;
 
   void startApp() async {
-    //Delay for Splash Screen
+    // Delay for Splash Screen.
     await Future.delayed(const Duration(seconds: 2));
 
-    //Initializing Hive DB
+    // Initializing Hive DB.
     Hive.initFlutter();
 
-    //Register Adapter to convert Quote Objects
+    // Register Adapter to convert Quote Objects.
     Hive.registerAdapter(QuoteAdapter());
 
     checkNetworkStatus();

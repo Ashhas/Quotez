@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quotez/bloc/home_screen/bookmark_button/bookmark_cubit.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
+import 'package:quotez/theme/app_dimens.dart';
 
-/// [FavoriteButton] saves or removes quotes from the database on pressed
+/// [FavoriteButton] saves or removes quotes from the database on-pressed.
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({Key? key}) : super(key: key);
 
@@ -14,7 +15,7 @@ class FavoriteButton extends StatefulWidget {
 }
 
 class _FavoriteButtonState extends State<FavoriteButton> {
-  // Tracks if the favorite button has been pressed in
+  // Tracks if the favorite button has been pressed.
   bool bookmarkPressed = false;
 
   @override
@@ -43,7 +44,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
             return IconButton(
               onPressed: () {
                 if (homeState is HomeLoaded) {
-                  // Add or Remove the current quote from DB, based on the button state
+                  // Add or Remove the current quote from DB, based on the button state.
                   bookmarkPressed
                       ? BlocProvider.of<BookmarkButtonCubit>(context)
                           .removeBookmarkedQuote(homeState.randomQuote)
@@ -53,7 +54,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
               },
               icon: Icon(
                 bookmarkPressed ? Icons.bookmark : Icons.bookmark_add_outlined,
-                size: 25,
+                size: AppDimens.iconSizeM,
                 color: Theme.of(context).iconTheme.color,
               ),
             );

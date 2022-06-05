@@ -6,7 +6,7 @@ import 'package:quotez/bloc/initialization/initialization_cubit.dart';
 import 'package:quotez/theme/app_colors.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 
-/// Screen that displays if there is no internet connectivity on app startup
+/// Screen that displays if there is no internet connectivity on app startup.
 class SplashNoNetworkOverlay extends StatelessWidget {
   const SplashNoNetworkOverlay({Key? key}) : super(key: key);
 
@@ -20,9 +20,8 @@ class SplashNoNetworkOverlay extends StatelessWidget {
           children: [
             const Text(UiConst.noNetworkMessage),
             ElevatedButton(
-              onPressed: () {
-                BlocProvider.of<InitializationCubit>(context).reloadStartup();
-              },
+              onPressed: () =>
+                  BlocProvider.of<InitializationCubit>(context).reloadStartup(),
               child: const Text(UiConst.reloadButtonTitle),
               style: ElevatedButton.styleFrom(
                 primary: AppColors.mediumAquamarine,

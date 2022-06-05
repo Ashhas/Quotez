@@ -9,9 +9,9 @@ import 'package:quotez/bloc/initialization/initialization_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
-import 'package:quotez/theme/app_themes.dart';
+import 'package:quotez/theme/app_theme.dart';
 import 'package:quotez/ui/home/home_screen.dart';
-import 'package:quotez/ui/home/widgets/home_no_network_widget.dart';
+import 'package:quotez/ui/home/widgets/home_no_network_view.dart';
 import 'package:quotez/ui/saved_quotes/saved_quotes_screen.dart';
 import 'package:quotez/ui/splash/splash_screen.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
@@ -66,7 +66,7 @@ class App extends StatelessWidget {
             UiConst.savedQuotesScreenRoute: (context) =>
                 const SavedQuotesScreen(),
             UiConst.homeNoNetworkWidgetRoute: (context) =>
-                const HomeNoNetworkWidget(),
+                const HomeNoNetworkView(),
           },
         ),
       ),

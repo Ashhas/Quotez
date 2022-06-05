@@ -5,7 +5,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:quotez/ui/home/widgets/buttons/info_button.dart';
 import 'buttons/bookmark_storage_button.dart';
 
-/// [HomeHeader]
+/// [HomeHeader] is the header of the home-screen containing the navigation buttons.
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     required this.panelController,

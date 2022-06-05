@@ -11,9 +11,9 @@ import 'package:quotez/ui/home/widgets/panel_widgets/panel_header.dart';
 import 'package:quotez/ui/home/widgets/panel_widgets/panel_list_tile.dart';
 import 'package:quotez/utils/constants/ui_const.dart';
 import 'package:quotez/utils/constants/var_const.dart';
-import 'package:quotez/utils/url_launcher_util.dart';
+import 'package:quotez/utils/url_util.dart';
 
-/// [AboutPanel] displays information about the app and extra communication
+/// [AboutPanel] displays information about the app and extra communication.
 class AboutPanel extends StatefulWidget {
   final ScrollController? scrollController;
 
@@ -31,10 +31,11 @@ class _AboutPanelState extends State<AboutPanel> {
 
   Future<PackageInfo> initPackageInfo() async {
     final packageInfo = await PackageInfo.fromPlatform();
+
     return packageInfo;
   }
 
-  /// Try and send an email using the [open_mail_app] package
+  /// Try and send an email using the [open_mail_app] package.
   Future<void> sendEmail() async {
     final result = await OpenMailApp.composeNewEmailInMailApp(
       emailContent: EmailContent(
@@ -43,7 +44,7 @@ class _AboutPanelState extends State<AboutPanel> {
       ),
     );
 
-    // If no mail apps found, show error
+    // If no mail apps found, show error.
     if (!result.didOpen && !result.canOpen) {
       log(UiConst.noEmailApp);
       // iOS: if multiple mail apps found, show dialog to select.
@@ -106,9 +107,8 @@ class _AboutPanelState extends State<AboutPanel> {
                       PanelListTile(
                         title: UiConst.githubRepoTitle,
                         tileIcon: const Icon(Icons.code),
-                        onTap: () async {
-                          UrlUtil.openUrl(VarConst.githubRepositoryUrl);
-                        },
+                        onTap: () async =>
+                            UrlUtil.openUrl(VarConst.githubRepositoryUrl),
                       ),
                       const PanelDivider(),
                       PanelListTile(
@@ -117,12 +117,11 @@ class _AboutPanelState extends State<AboutPanel> {
                         onTap: () => sendEmail(),
                       ),
                       const PanelDivider(),
-                      PanelListTile(
+                      const PanelListTile(
                         title: UiConst.rateTheApp,
-                        tileIcon: const Icon(Icons.rate_review_outlined),
-                        onTap: () {},
+                        tileIcon: Icon(Icons.rate_review_outlined),
+                        onTap: null,
                       ),
-                      const SizedBox(height: 30),
                     ],
                   ),
                 ],

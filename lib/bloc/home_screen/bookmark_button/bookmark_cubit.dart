@@ -14,19 +14,19 @@ class BookmarkButtonCubit extends Cubit<BookmarkState> {
   BookmarkButtonCubit({required this.quoteRepository})
       : super(BookmarkNotPressed());
 
-  /// Save Quote in Box
+  /// Save Quote in Box.
   void bookmarkQuote(Quote? quote) {
     emit(BookmarkPressed());
     quoteRepository.saveQuote(quote);
   }
 
-  /// Remove current quote from box (after adding it)
+  /// Remove current quote from box (after adding it).
   void removeBookmarkedQuote(Quote? quote) {
     emit(BookmarkNotPressed());
     quoteRepository.removeQuote(quote);
   }
 
-  /// Set a new state to reset the widget in UI
+  /// Set a new state to reset the widget in UI.
   void resetFavoriteButtonState() {
     emit(BookmarkNotPressed());
   }

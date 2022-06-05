@@ -31,13 +31,13 @@ class HomeCubit extends Cubit<HomeState> {
     });
   }
 
-  /// [getRandomQuote] Returns a random quote
+  /// [getRandomQuote] Returns a random quote.
   void getRandomQuote() async {
     emit(HomeLoading());
 
     final newRandomQuote = await quoteRepository.getRandomQuote();
 
-    // Check based on QuoteResponse
+    // Check based on QuoteResponse.
     if (newRandomQuote is SuccessResponse) {
       log(UiConst.quoteRequestError);
       emit(HomeLoaded(randomQuote: newRandomQuote.newQuote));

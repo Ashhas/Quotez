@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';
+import 'package:quotez/theme/app_dimens.dart';
 
-/// [DeleteQuotesButton] deletes all quotes from box on pressed
+/// [DeleteQuotesButton] deletes all quotes from box on pressed.
 class DeleteQuotesButton extends StatelessWidget {
   const DeleteQuotesButton({Key? key}) : super(key: key);
 
@@ -16,7 +17,7 @@ class DeleteQuotesButton extends StatelessWidget {
       },
       icon: Icon(
         Icons.delete,
-        size: 25,
+        size: AppDimens.iconSizeM,
         color: Theme.of(context).iconTheme.color,
       ),
     );

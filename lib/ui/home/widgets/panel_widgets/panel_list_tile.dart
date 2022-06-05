@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// [PanelListTile] is the standard list used in the panels
+/// [PanelListTile] is the standard tile used in the panel.
 class PanelListTile extends StatelessWidget {
   const PanelListTile({
     required this.title,
