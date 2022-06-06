@@ -20,7 +20,10 @@ class PanelListTile extends StatelessWidget {
       enabled: true,
       horizontalTitleGap: 0,
       leading: tileIcon,
-      title: Text(title),
+      title: Text(
+        title,
+        style: Theme.of(context).primaryTextTheme.bodyText2,
+      ),
       onTap: onTap,
     );
   }

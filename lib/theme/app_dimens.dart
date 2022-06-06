@@ -20,8 +20,10 @@ abstract class AppDimens {
   static const double sizeUnitPercentageM = 0.06;
 
   // Padding.
+  static const double paddingS = 5;
   static const double paddingM = 10;
-  static const double paddingL = 30;
+  static const double paddingL = 15;
+  static const double paddingXL = 30;
 
   // Padding Percentage.
   static const double paddingPercentageXS = 0.04;

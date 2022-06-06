@@ -12,8 +12,8 @@ class TextContainerLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        right: AppDimens.paddingL,
-        left: AppDimens.paddingL,
+        right: AppDimens.paddingXL,
+        left: AppDimens.paddingXL,
         top:
             (MediaQuery.of(context).size.height) * AppDimens.paddingPercentageM,
       ),

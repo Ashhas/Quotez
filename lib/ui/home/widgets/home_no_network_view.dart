@@ -8,9 +8,12 @@ class HomeNoNetworkView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: Center(
-        child: Text(UiStrings.noNetworkMessage),
+        child: Text(
+          UiStrings.noNetworkMessage,
+          style: Theme.of(context).primaryTextTheme.headline5,
+        ),
       ),
     );
   }

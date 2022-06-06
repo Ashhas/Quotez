@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotez/theme/app_dimens.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -22,18 +23,22 @@ class HomeHeader extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: Padding(
-            padding: const EdgeInsets.only(left: 10, top: 5),
+            padding: const EdgeInsets.only(
+              left: AppDimens.paddingM,
+              top: AppDimens.paddingS,
+            ),
             child: InfoButton(
-              onPressed: () {
-                panelController.open();
-              },
+              onPressed: () => panelController.open(),
             ),
           ),
         ),
         const Align(
           alignment: Alignment.topRight,
           child: Padding(
-            padding: EdgeInsets.only(top: 5, right: 10),
+            padding: EdgeInsets.only(
+              top: AppDimens.paddingS,
+              right: AppDimens.paddingM,
+            ),
             child: BookmarkStorageButton(),
           ),
         ),

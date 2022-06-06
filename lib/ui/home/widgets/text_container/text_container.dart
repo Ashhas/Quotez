@@ -22,8 +22,8 @@ class _TextContainerState extends State<TextContainer> {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       padding: EdgeInsets.only(
-        right: AppDimens.paddingL,
-        left: AppDimens.paddingL,
+        right: AppDimens.paddingXL,
+        left: AppDimens.paddingXL,
         top: (MediaQuery.of(context).size.height) *
             AppDimens.paddingPercentageS,
       ),
