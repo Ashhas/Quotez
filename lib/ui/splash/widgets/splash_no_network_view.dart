@@ -6,7 +6,7 @@ import 'package:quotez/bloc/initialization/initialization_cubit.dart';
 import 'package:quotez/theme/app_colors.dart';
 import 'package:quotez/utils/ui_strings.dart';
 
-/// Screen that displays if there is no internet connectivity on app startup.
+/// Widget that shows if there is no internet connectivity on app startup.
 class SplashNoNetworkView extends StatelessWidget {
   const SplashNoNetworkView({Key? key}) : super(key: key);
 

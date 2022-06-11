@@ -13,8 +13,8 @@ import 'package:quotez/utils/ui_strings.dart';
 
 part 'home_state.dart';
 
-/// Bloc that maps the states and event of the [HomeScreen].
-/// This Bloc handles quote requests, share events & connectivity states
+/// [HomeCubit] handles quote requests shown in the [HomeScreen]
+/// Also listens to connectivity states from [NetworkConnectivityCubit]
 class HomeCubit extends Cubit<HomeState> {
   final QuoteRepository quoteRepository;
   final NetworkConnectivityCubit networkCubit;

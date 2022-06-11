@@ -21,7 +21,7 @@ class HomeFooter extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
-            FavoriteButton(),
+            BookmarkButton(),
             QuoteButton(),
             ShareButton(),
           ],

@@ -5,8 +5,8 @@ import 'package:meta/meta.dart';
 
 part 'network_connectivity_state.dart';
 
-///Bloc listens to changes in the network connectivity
-///Based on the [ConnectivityResult], the state will be update or changed
+/// [NetworkConnectivityCubit] listens to changes in the network connectivity
+/// Based on the [ConnectivityResult], the state will be update or changed.
 class NetworkConnectivityCubit extends Cubit<NetworkConnectivityState> {
   NetworkConnectivityCubit({Connectivity? connectivityObject})
       : connectivityObject = connectivityObject ?? Connectivity(),

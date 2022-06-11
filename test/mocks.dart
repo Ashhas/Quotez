@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
-import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
+import 'package:quotez/bloc/home_screen/quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
