@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:shimmer_animation/shimmer_animation.dart';
 
-/// Shimmer Widget when [HomeState] is [HomeLoading]
+import 'package:quotez/theme/app_dimens.dart';
+
+/// Shimmer Widget when [HomeState] is in the [HomeLoading] state.
 class TextContainerLoading extends StatelessWidget {
   const TextContainerLoading({Key? key}) : super(key: key);
 
@@ -10,9 +12,10 @@ class TextContainerLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        right: 30,
-        left: 30,
-        top: (MediaQuery.of(context).size.height) * 0.1,
+        right: AppDimens.paddingXL,
+        left: AppDimens.paddingXL,
+        top:
+            (MediaQuery.of(context).size.height) * AppDimens.paddingPercentageM,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -20,18 +23,19 @@ class TextContainerLoading extends StatelessWidget {
           Shimmer(
             color: Colors.grey.shade900,
             child: const SizedBox(
-              height: 20,
-              width: 300,
+              height: AppDimens.shimmerHeight,
+              width: AppDimens.shimmerWidthL,
             ),
           ),
           SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.01,
+            height: (MediaQuery.of(context).size.height) *
+                AppDimens.sizeUnitPercentageS,
           ),
           Shimmer(
             color: Colors.grey.shade900,
             child: const SizedBox(
-              height: 20,
-              width: 100,
+              height: AppDimens.shimmerHeight,
+              width: AppDimens.shimmerWidthM,
             ),
           ),
         ],

@@ -5,9 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
-import 'package:quotez/utils/constants/ui_const.dart';
+import 'package:quotez/theme/app_dimens.dart';
+import 'package:quotez/utils/ui_strings.dart';
 
-/// Widget that handles quote request
+/// [QuoteButton] executes request to fetch new random quote.
+/// Also, it animates whenever it is pressed.
 class QuoteButton extends StatefulWidget {
   const QuoteButton({Key? key}) : super(key: key);
 
@@ -39,7 +41,7 @@ class _QuoteButtonState extends State<QuoteButton>
     return BlocListener<QuoteButtonCubit, QuoteButtonState>(
       listener: (BuildContext context, state) {
         if (state is QuoteButtonPressed) {
-          // Do Icon Rotation
+          // Execute the icon rotation.
           _controller.reset();
           _controller.forward();
         }
@@ -48,11 +50,11 @@ class _QuoteButtonState extends State<QuoteButton>
         builder: (BuildContext context, state) {
           return ElevatedButton(
             onPressed: () {
-              // Based on the network connection, do request
+              // Based on the network connection, do request to fetch quotes.
               if (state is NoNetworkConnectionState) {
                 Navigator.pushReplacementNamed(
                   context,
-                  UiConst.homeNoNetworkWidgetRoute,
+                  UiStrings.homeNoNetworkWidgetRoute,
                 );
               } else {
                 BlocProvider.of<HomeCubit>(context).getRandomQuote();
@@ -60,15 +62,21 @@ class _QuoteButtonState extends State<QuoteButton>
             },
             child: Center(
               child: RotationTransition(
-                turns: Tween(begin: 0.5, end: 0.0).animate(_controller),
+                turns: Tween(
+                  begin: AppDimens.beginTween,
+                  end: AppDimens.endTween,
+                ).animate(_controller),
                 child: const Icon(
                   Icons.sync,
-                  size: 35,
+                  size: AppDimens.iconSizeXL,
                 ),
               ),
             ),
             style: ElevatedButton.styleFrom(
-              fixedSize: const Size(80, 80),
+              fixedSize: const Size(
+                AppDimens.buttonSizeXL,
+                AppDimens.buttonSizeXL,
+              ),
               primary: Theme.of(context).primaryColor,
               shape: const CircleBorder(
                 side: BorderSide.none,

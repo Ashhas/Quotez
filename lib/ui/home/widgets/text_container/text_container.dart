@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:quotez/data/model/quote.dart';
+import 'package:quotez/theme/app_dimens.dart';
 
-/// Widget that displays the quote from [Quote]
+/// Widget that displays the text from [Quote].
 class TextContainer extends StatefulWidget {
   final Quote randomQuote;
 
-  const TextContainer({Key? key, required this.randomQuote}) : super(key: key);
+  const TextContainer({
+    Key? key,
+    required this.randomQuote,
+  }) : super(key: key);
 
   @override
   _TextContainerState createState() => _TextContainerState();
@@ -15,11 +19,13 @@ class TextContainer extends StatefulWidget {
 class _TextContainerState extends State<TextContainer> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       padding: EdgeInsets.only(
-        right: 30,
-        left: 30,
-        top: (MediaQuery.of(context).size.height) * 0.1,
+        right: AppDimens.paddingXL,
+        left: AppDimens.paddingXL,
+        top: (MediaQuery.of(context).size.height) *
+            AppDimens.paddingPercentageS,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -30,7 +36,8 @@ class _TextContainerState extends State<TextContainer> {
             style: Theme.of(context).primaryTextTheme.headline6,
           ),
           SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.06,
+            height: (MediaQuery.of(context).size.height) *
+                AppDimens.sizeUnitPercentageM,
           ),
           Text(
             "- ${widget.randomQuote.author}",

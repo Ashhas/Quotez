@@ -17,11 +17,6 @@ class NetworkConnectionUpdatedState extends NetworkConnectivityState {
   List<Object> get props => [];
 }
 
-class CheckingNetworkConnectionState extends NetworkConnectivityState {
-  @override
-  List<Object> get props => [];
-}
-
 class NoNetworkConnectionState extends NetworkConnectivityState {
   final ConnectivityResult connectivityResult;
 
