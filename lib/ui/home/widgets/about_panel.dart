@@ -98,10 +98,15 @@ class _AboutPanelState extends State<AboutPanel> {
                         onTap: () => EmailUtil.sendEmail(context),
                       ),
                       const PanelDivider(),
-                      const PanelListTile(
+                      PanelListTile(
                         title: UiStrings.rateTheApp,
-                        tileIcon: Icon(Icons.rate_review_outlined),
-                        onTap: null,
+                        tileIcon: const Icon(Icons.rate_review_outlined),
+                        onTap: () {
+                          // Didn't use [Platform], because this approach is easier mock in tests
+                          Theme.of(context).platform == TargetPlatform.android
+                              ? UrlUtil.openUrl(Constants.playStoreUrl)
+                              : null;
+                        },
                       ),
                     ],
                   ),

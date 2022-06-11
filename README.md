@@ -1,4 +1,4 @@
-# Quotez - Programming Quotes
+# Quotez - Coding Quotes
 
 :speech_balloon: This project is a Random Programming Quotes app made with [Programming Quotes API]. Get random
 programming quotes from an online database and save them locally on your phone or share them with your friends!

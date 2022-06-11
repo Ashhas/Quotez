@@ -1,6 +1,6 @@
 abstract class UiStrings {
   // App General Strings.
-  static const appName = 'Code Quotes';
+  static const appName = 'Coding Quotes';
 
   // Navigation Routes.
   static const splashScreenRoute = "/splash_screen";
