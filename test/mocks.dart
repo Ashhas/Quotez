@@ -7,7 +7,7 @@ import 'package:quotez/bloc/home_screen/quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
-import 'package:quotez/network/dio_client.dart';
+import 'package:quotez/network/api_client.dart';
 
 enum ConnectivityCase { caseError, caseSuccess }
 
@@ -60,4 +60,4 @@ class MockBox extends Mock implements Box {
   MockBox({required this.values});
 }
 
-class MockDioClient extends Mock implements DioClient {}
+class MockDioClient extends Mock implements ApiClient {}

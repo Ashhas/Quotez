@@ -5,13 +5,11 @@ import 'package:dio/dio.dart';
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/model/quote_response.dart';
 
-class DioClient {
-  static const _quoteApiUrl = "http://quotes.stormconsultancy.co.uk";
-  static const _quoteApiEndpointRandom = "/random.json";
-
+/// [ApiClient] handles all API requests.
+class ApiClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: _quoteApiUrl,
+      baseUrl: 'http://quotes.stormconsultancy.co.uk',
       connectTimeout: 5000,
       receiveTimeout: 3000,
     ),
@@ -19,21 +17,21 @@ class DioClient {
 
   Future<QuoteResponse> getRandomQuote() async {
     try {
-      Response randomQuote = await _dio.get(_quoteApiEndpointRandom);
-      final newQuote = Quote.fromJson(randomQuote.data);
+      final response = await _dio.get('/random.json');
+      final randomQuote = Quote.fromJson(response.data);
 
-      return SuccessResponse(newQuote);
+      return SuccessResponse(randomQuote);
     } on DioError catch (e) {
       switch (e.type) {
         case DioErrorType.response:
-          log('Dio Error Type: ${e.type.toString()}');
+          log('ERROR TYPE: ${e.type.toString()}');
           log('STATUS: ${e.response?.statusCode}');
           log('DATA: ${e.response?.data}');
           log('HEADERS: ${e.response?.headers}');
           return ErrorResponse(e.message);
 
         default:
-          log('Dio Error Type: ${e.type.toString()}');
+          log('ERROR TYPE: ${e.type.toString()}');
           return ErrorResponse(e.message);
       }
     }
