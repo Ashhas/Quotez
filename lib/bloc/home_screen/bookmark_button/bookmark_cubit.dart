@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quotez/data/model/quote.dart';
 import 'package:quotez/data/repository/quote_repository.dart';
+import 'package:quotez/ui/home/widgets/buttons/bookmark_button.dart';
 
 part 'bookmark_state.dart';
 
-///Bloc that keeps track of the state the [FavoriteButton] widget currently has.
-///Based on the given event, this bloc can: Save, Delete a [Quote] or Reset widget in UI
+/// [BookmarkButtonCubit] emits states for [BookmarkButton]
+/// Can be used to save or remove [Quote] values in the database
 class BookmarkButtonCubit extends Cubit<BookmarkState> {
   QuoteRepository quoteRepository;
 

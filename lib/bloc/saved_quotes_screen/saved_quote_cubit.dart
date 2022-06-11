@@ -6,8 +6,8 @@ import 'package:quotez/data/repository/quote_repository.dart';
 
 part 'saved_quote_state.dart';
 
-///Bloc handles the events and states in [SavedQuotesScreen]
-///Currently this Bloc only fetches all quotes from the local database
+/// [SavedQuotesCubit] handles loading and deleting quotes in [SavedQuotesScreen]
+/// Only fetches quotes from the local database
 class SavedQuotesCubit extends Cubit<SavedQuoteState> {
   QuoteRepository quoteRepository;
 
@@ -28,7 +28,7 @@ class SavedQuotesCubit extends Cubit<SavedQuoteState> {
     }
   }
 
-  /// Delete All Quotes.
+  /// Delete all quotes.
   void deleteAllSavedQuotes() async {
     await quoteRepository.removeAllQuotes();
     emit(NoSavedQuotes());

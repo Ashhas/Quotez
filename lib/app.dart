@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quotez/bloc/home_screen/bookmark_button/bookmark_cubit.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
-import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
+import 'package:quotez/bloc/home_screen/quote_button/quote_button_cubit.dart';
 import 'package:quotez/bloc/initialization/initialization_cubit.dart';
 import 'package:quotez/bloc/network_connectivity/network_connectivity_cubit.dart';
 import 'package:quotez/bloc/saved_quotes_screen/saved_quote_cubit.dart';

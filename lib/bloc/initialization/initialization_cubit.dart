@@ -11,11 +11,11 @@ import 'package:quotez/ui/splash/splash_screen.dart';
 
 part 'initialization_state.dart';
 
-///Bloc that initializes Hive db & does initial network check
-///This Bloc executes during the [SplashScreen] and determines when to show a no network screen.
+/// [InitializationCubit] initializes Hive db & does initial network check.
+/// Executes during the [SplashScreen] and determines when to show a no network screen.
 class InitializationCubit extends Cubit<InitializationState> {
   InitializationCubit({this.connectivityObject}) : super(InitialState());
-  
+
   final Connectivity? connectivityObject;
 
   void startApp() async {

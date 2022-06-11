@@ -6,15 +6,15 @@ import 'package:quotez/bloc/home_screen/bookmark_button/bookmark_cubit.dart';
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
 import 'package:quotez/theme/app_dimens.dart';
 
-/// [FavoriteButton] saves or removes quotes from the database on-pressed.
-class FavoriteButton extends StatefulWidget {
-  const FavoriteButton({Key? key}) : super(key: key);
+/// [BookmarkButton] saves or removes quotes from the database on-pressed.
+class BookmarkButton extends StatefulWidget {
+  const BookmarkButton({Key? key}) : super(key: key);
 
   @override
-  _FavoriteButtonState createState() => _FavoriteButtonState();
+  _BookmarkButtonState createState() => _BookmarkButtonState();
 }
 
-class _FavoriteButtonState extends State<FavoriteButton> {
+class _BookmarkButtonState extends State<BookmarkButton> {
   // Tracks if the favorite button has been pressed.
   bool bookmarkPressed = false;
 

@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:quotez/bloc/home_screen/home_cubit.dart';
-import 'package:quotez/bloc/home_screen/load_quote_button/quote_button_cubit.dart';
+import 'package:quotez/bloc/home_screen/quote_button/quote_button_cubit.dart';
 import 'package:quotez/data/model/quote.dart';
 import '../../../mocks.dart';
 

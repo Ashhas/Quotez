@@ -9,8 +9,8 @@ import 'package:quotez/ui/home/widgets/buttons/quote_button.dart';
 
 part 'quote_button_state.dart';
 
-///Bloc that keeps track of the state and events from the [QuoteButton] widget.
-///This Bloc listens to [HomeBLoc] and changes states to control the animation in the UI
+/// [QuoteButtonCubit] emits states for [QuoteButton]
+/// Listens to [HomeCubit] and updates state to control [QuoteButton]
 class QuoteButtonCubit extends Cubit<QuoteButtonState> {
   final HomeCubit homeCubit;
   StreamSubscription? homeSubscription;
