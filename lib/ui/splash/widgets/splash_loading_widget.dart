@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:quotez/theme/app_colors.dart';
+import 'package:quotez/utils/constants.dart';
 
-/// [SplashWidget] default splash screen widget.
-class SplashWidget extends StatelessWidget {
-  const SplashWidget({Key? key}) : super(key: key);
+/// [SplashLoadingWidget] default splash screen widget.
+class SplashLoadingWidget extends StatelessWidget {
+  const SplashLoadingWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class SplashWidget extends StatelessWidget {
             width: 100,
             height: 100,
             image: AssetImage(
-              "assets/app_icon.png",
+              Constants.appIcon,
             ),
           ),
         ),

@@ -27,7 +27,6 @@ void main() {
         HomeLoaded(randomQuote: testQuote),
       ),
     );
-    // quoteButtonCubit = QuoteButtonCubit(homeCubit: homeCubit);
   });
 
   QuoteButtonCubit _createQuoteButtonCubit(HomeCubit cubit) {
@@ -51,9 +50,7 @@ void main() {
       group('when the home screen is loaded with [HomeLoaded]', () {
         blocTest(
           'emits [QuoteButtonStandby]',
-          build: () {
-            return _createQuoteButtonCubit(homeCubitLoaded);
-          },
+          build: () => _createQuoteButtonCubit(homeCubitLoaded),
           act: (_) {},
           expect: () => [QuoteButtonStandby()],
         );

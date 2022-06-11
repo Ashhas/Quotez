@@ -5,12 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quotez/bloc/initialization/initialization_cubit.dart';
 import 'package:quotez/ui/home/home_screen.dart';
-import 'package:quotez/ui/splash/widgets/splash_no_network_overlay.dart';
-import 'package:quotez/ui/splash/widgets/splash_widget.dart';
+import 'package:quotez/ui/splash/widgets/splash_loading_widget.dart';
+import 'package:quotez/ui/splash/widgets/splash_no_network_view.dart';
 
 /// [SplashScreen] determines what widget to show:
-/// - [SplashWidget] is shown with [InitialState] and is always shown first
-/// - [SplashNoNetworkOverlay] is shown when there there is no connection with [NoNetworkOnStartup]
+/// - [SplashLoadingWidget] is shown with [InitialState] and is always shown first
+/// - [SplashNoNetworkView] is shown when there there is no connection with [NoNetworkOnStartup]
 ///   (Does not check if the connection actually provides internet-access)
 /// - [HomeScreen] is shown on [InitializedState]
 class SplashScreen extends StatelessWidget {
@@ -29,9 +29,9 @@ class SplashScreen extends StatelessWidget {
       child: BlocBuilder<InitializationCubit, InitializationState>(
         builder: (context, initState) {
           if (initState is InitialState) {
-            return const SplashWidget();
+            return const SplashLoadingWidget();
           } else if (initState is NoNetworkOnStartup) {
-            return const SplashNoNetworkOverlay();
+            return const SplashNoNetworkView();
           } else if (initState is InitializedState) {
             return const HomeScreen();
           } else {
